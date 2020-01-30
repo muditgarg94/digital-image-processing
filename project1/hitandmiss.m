@@ -19,22 +19,14 @@
 %  Date:        1/30/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%reading the image
-img=imread('RandomDisks-P10.jpg');
-%converting it to binary image
-img=convert2binary(img);
-%imshow(img);
-[M,N]=size(img);
 
-%creating a variable that will store the image without salt and pepper
-%noise
-filtered_img=zeros(M,N);
+function transform=hitandmiss(X,A,B)
 
-%removing the noise using open/close operation
+img1 = erosion(X,A);
+compl=complement(X);
+img2=erosion(compl,B);
+transform=intersection(img1,img2);
 
 
-
-%converting the datatype of img from double to uint8
-%filtered_img=uint8(filtered_img);
-%imshow(filtered_img);
+return
 
