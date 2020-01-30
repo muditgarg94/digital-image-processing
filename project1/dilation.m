@@ -20,7 +20,7 @@
 %
 %
 %
-%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
