@@ -1,3 +1,24 @@
+%%%%%%%%%%%%% hitandmiss.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Purpose:  
+%      Perform the Hit-or-Miss Transformation on image "RandomDisks-P10"
+%
+% Input Variables:
+%      A     input the image "RandomDisks-P10.jpg"
+%      B     structuring element using which operation will be performed
+%      
+% Returned Results:
+%      noNoiseImg       finalImg
+%
+% Processing Flow:
+%      1.  
+%      2. 
+%
+%
+%
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Date:        1/30/2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %reading the image
 img=imread('RandomDisks-P10.jpg');
 %converting it to grayscale image
@@ -21,7 +42,7 @@ filtered_img=zeros(M,N);
 % Remove noise using open-close operations.
 strucElement1 = strel('disk',2); %strel function to create an structuring element
 img1 = imclose(img, strucElement1); %imclose to apply close operation
-strucElement2 = strel('disk',3)
+strucElement2 = strel('disk',3);
 img2 = imopen(img1, strucElement2); %imclose to apply open operation
 % Primary image before noise removal
 figure
@@ -29,9 +50,8 @@ imshow(img)
 % Image after removing noise
 figure
 imshow(img2)
-
+image = img2;
 %converting the datatype of img from double to uint8
 %filtered_img=uint8(filtered_img);
 %imshow(filtered_img);
-
 
