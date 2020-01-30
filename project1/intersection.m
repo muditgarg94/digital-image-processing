@@ -10,9 +10,9 @@
 %      output   intersection between A and B
 %
 % Processing Flow:
-%      1.  Calculate the size of image.
-%      2.  Iterate the image. 
-%      3.  If img(i,j)=1, set output(i,j)=0 else output(i,j)=1
+%      1.  Subtract the two images.
+%      2.  Check condition if subtraction of 2 images is 0.
+%      3.  Return the output image.
 %
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
