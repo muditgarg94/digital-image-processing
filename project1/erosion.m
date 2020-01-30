@@ -16,9 +16,7 @@
 %      pixel.
 %      4.  Iterate the grayscaled image. If value > threshold, set value
 %       to 255. Set others as 0.
-%      5. Convert the data type of binary image to uint8 and return it.
-%          
-%
+%      5.  Convert the data type of binary image to uint8 and return it.
 %
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
