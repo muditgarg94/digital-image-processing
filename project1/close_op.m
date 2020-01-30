@@ -27,10 +27,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function closed_img=close(X,B)
+function closed_img=close_op(X,B)
 
-[m,n]=size(X);
-
-closed_img=zeros(m,n);
+closed_img=dilation(X,B);
+closed_img=erosion(closed_img,B);
 
 return

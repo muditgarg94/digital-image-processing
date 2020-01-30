@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% open.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% open_op.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %      Perform the open operation on image
 %
@@ -17,3 +17,11 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+function output=open_op(img,B)
+
+output=erosion(img,B);
+output=dilation(output,B);
+
+return 
