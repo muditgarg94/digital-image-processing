@@ -1,12 +1,13 @@
-%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% close.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      Convert the image to binary image
+%      Perform the close operation on image
 %
 % Input Variables:
-%      img     input 3D/2D image
+%      X     input 2D binary image
+%      B     structuring element
 %      
 % Returned Results:
-%      y       binary image
+%      closed_img       image after performing close operation
 %
 % Processing Flow:
 %      1.  Calculate the size of given image.
@@ -17,18 +18,19 @@
 %       to 1. Set others as 0.
 %      5. Return the binary image.
 % 
-%
+% The following functions are called:
+%      erosion.m       performs erosion
+%      dilation.m      performs dilation
+%          
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
 %  Date:        1/29/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%reading the image
-img=imread('RandomDisks-P10.jpg');
 
-%convert the image to binary
-img=convert2binary(img);
+function closed_img=close(X,B)
 
-%remove noise using close and open operation
+[m,n]=size(X);
 
-b=[1 1 1]; % structuring element of 3 pixel to remove noise
-fil_img=close(img,b);
+closed_img=zeros(m,n);
+
+return

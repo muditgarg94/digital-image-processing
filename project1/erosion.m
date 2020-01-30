@@ -10,13 +10,13 @@
 %      eroded_val       eroded image
 %
 % Processing Flow:
-%      1.  Load input image
-%      2.  If it is colored, covert to gray scale
-%      3.  Calculate threshold. In our code, tnreshold is the avg value of
-%      pixel.
-%      4.  Iterate the grayscaled image. If value > threshold, set value
-%       to 255. Set others as 0.
-%      5.  Convert the data type of binary image to uint8 and return it.
+%      1.  Calculate the size of image.
+%      2.  Take the round of size(structuring element)/2;
+%      3.  Iterate the image such that the entire structuring element is
+%      fit into the image.
+%      4.  If all the values of image and structuring element match, set
+%      eroded_img=1 else set it to 0.
+%      5.  Repeat 3 & 4 until all the elements are accessed
 %
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
@@ -25,4 +25,35 @@
 
 
 function eroded_val=erosion(A,B)
+
+[m,n]=size(A);
+
+p=round(size(B,1)/2);
+q=round(size(B,2)/2);
+eroded_val=zeros(m,n);
+
+for i=p:m-q
+    for j=q:n-q
+        flag=true;
+        b_i=1;
+        for new_i=i-p+1:i+p-1
+            b_j=1;
+            for new_j=j-q+1:j+q-1
+                if(A(new_i,new_j)~=B(b_i,b_j))
+                    flag=false;
+                    break;
+                end
+                b_j=b_j+1;
+            end
+            b_i=b_i+1;
+        end
+        if(flag)
+            %disp('i='+i);
+            %disp('j='+j);
+            eroded_val(i,j)=1;
+        end
+        
+    end
+end
+
 return
