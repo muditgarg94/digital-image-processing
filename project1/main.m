@@ -29,6 +29,7 @@ img=imread('RandomDisks-P10.jpg');
 img=convert2binary(img);
 
 %remove noise using close and open operation
+noNoiseImg = NoiseRemoval(img);
 
 b=[1 1 1]; % structuring element of 3 pixel to remove noise
 fil_img=close(img,b);
