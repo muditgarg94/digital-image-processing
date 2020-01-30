@@ -30,9 +30,9 @@ function eroded_val=erosion(A,B)
 
 p=round(size(B,1)/2);
 q=round(size(B,2)/2);
-eroded_val=zeros(m,n);
+eroded_val=A;
 
-for i=p:m-q
+for i=p:m-p
     for j=q:n-q
         flag=true;
         b_i=1;
@@ -51,6 +51,8 @@ for i=p:m-q
             %disp('i='+i);
             %disp('j='+j);
             eroded_val(i-p+1,j-q+1)=1;
+        else
+            eroded_val(i-p+1,j-q+1)=0;
         end
         
     end
