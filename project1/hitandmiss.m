@@ -21,8 +21,8 @@
 
 %reading the image
 img=imread('RandomDisks-P10.jpg');
-%converting it to grayscale image
-img=rgb2gray(img);
+%converting it to binary image
+img=convert2binary(img);
 %imshow(img);
 [M,N]=size(img);
 
@@ -30,7 +30,7 @@ img=rgb2gray(img);
 %noise
 filtered_img=zeros(M,N);
 
-
+%removing the noise using open/close operation
 
 
 
