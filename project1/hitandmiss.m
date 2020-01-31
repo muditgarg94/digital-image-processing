@@ -19,7 +19,7 @@
 %      complement.m    return the complement of image
 %      intersection.m  return the intersection of 2 images
 %
-%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/30/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,11 +27,13 @@
 function transform=hitandmiss(X,A,B)
 
 img1 = erosion(X,A);
-figure, imshow(img1);
+%figure, imshow(img1);
 compl=complement(X);
 img2=erosion(compl,B);
-figure, imshow(img2);
+%figure, imshow(img2);
 transform=intersection(img1,img2);
+
+
 
 
 return

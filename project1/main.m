@@ -35,18 +35,31 @@ img=imread('RandomDisks-P10.jpg');
 %convert the image to binary
 img=convert2binary(img);
 %figure, imshow(img);
-%imwrite(img,'binaryimage.jpg');
+imwrite(img,'binaryimage.gif');
 
 %remove noise using close and open operation
 noNoiseImg = NoiseRemoval(img);
-figure,imshow(noNoiseImg);
-%imwrite(noNoiseImg,'filtered_img.jpg')
+%figure,imshow(noNoiseImg);
+imwrite(noNoiseImg,'filtered_img.gif')
 
-%find the disk of largest size using hit and miss transform
-A=~disk(8);
-B=disk(10);
 
-big=hitandmiss(noNoiseImg,(A),B);
-figure, imshow(big);
 
-%find the disk of the smallest size using hit and miss transform
+
+Ab=~disk(30); %% Generated disk A for biggest disk
+Bb=disk(37); %% Generated w-a mask (B) for biggest disk
+
+%big=erosion(noNoiseImg,As);
+big=hitandmiss(noNoiseImg,Ab,Bb);
+big_disk=highlight_selector(noNoiseImg,big);
+figure, imshow(big_disk);
+imwrite(big_disk,'big_disk.gif');
+
+
+As=~disk(8); %% Generated disk A for smallest disk
+Bs=disk(10); %% Generated w-a mask (B) for smallest disk
+
+small=hitandmiss(noNoiseImg,As,Bs);
+small_disk=highlight_selector(noNoiseImg,small);
+figure, imshow(small_disk);
+imwrite(small_disk,'small_disk.gif');
+

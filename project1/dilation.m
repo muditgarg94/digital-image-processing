@@ -1,53 +1,60 @@
-%%%%%%%%%%%%% dilation.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% erosion.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      Perform the dilation operation on image
+%      Perform the erosion operation on image
 %
 % Input Variables:
 %      A     input binary image on which operation will be performed
 %      B     structuring element using which operation will be performed
 %      
 % Returned Results:
-%      dil_val       dilated image
+%      eroded_val       eroded image
 %
 % Processing Flow:
-%      1.  Calculate the size of given image and structuring element.
-%      2.  Iterate over the image.
-%      3.  If the value of a pixel is 1, iterate over the structuring
-%      element.
-%      4.  If the value of structuring element is 1, then the value of
-%      dilated image at location(image)+location(structuring element) =1
-%      5. Return the dilated image.
+%      1.  Calculate the size of image.
+%      2.  Take the round of size(structuring element)/2;
+%      3.  Iterate the image such that the entire structuring element is
+%      fit into the image.
+%      4.  If all the values of image and structuring element match, set
+%      eroded_img=1 else set it to 0.
+%      5.  Repeat 3 & 4 until all the elements are accessed
 %
 %
-%
-%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function dil_val=dilation(A,B)
-%size of image
+
+function dil=dilation(A,B)
+
 [m,n]=size(A);
 
-%size of structuring element
-[p,q]=size(B);
+p=round(size(B,1)/2);
+q=round(size(B,2)/2);
+dil=A;
 
-dil_val=zeros(m,n);
-
-%iterating the image
-for i=1:m
-    for j=1:n
-        if A(i,j)==1
-            for k=1:p
-                for l=1:q
-                    if B(k,l)==1
-                        %adding the indexes of image and structing element
-                        x=i+k;
-                        y=j+l;
-                        dil_val(x,y)=1;
-                    end
+for i=p:m-p
+    for j=q:n-q
+        flag=true;
+        b_i=1;
+        for new_i=i-p+1:i+p-1
+            b_j=1;
+            for new_j=j-q+1:j+q-1
+                if(B(b_i,b_j)==0 && A(new_i,new_j)==0)
+                    flag=false;
+                    break;
                 end
+                b_j=b_j+1;
             end
+            b_i=b_i+1;
         end
+        if(flag)
+            %disp('i='+i);
+            %disp('j='+j);
+            dil(i,j)=1;
+        else
+            dil(i,j)=0;
+        end
+        
     end
 end
 

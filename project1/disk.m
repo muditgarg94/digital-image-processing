@@ -2,7 +2,7 @@ function disk_str=disk(r)
 
 d=2*r;
 
-disk_str=zeros(d+1);
+disk_str=zeros(d+2);
 
 for i=1:d+1
     for j=1:d+1
