@@ -1,6 +1,6 @@
 %%%%%%%%%%%%% dilation.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%      Perform the erosion operation on image
+%      Perform the dilation operation on image
 %
 % Input Variables:
 %      A     input binary image on which operation will be performed
@@ -13,9 +13,9 @@
 %      1.  Calculate the size of image.
 %      2.  Take the round of size(structuring element)/2;
 %      3.  Iterate the image such that the entire structuring element is
-%      fit into the image.
-%      4.  If all the values of image and structuring element match, set
-%      eroded_img=1 else set it to 0.
+%      slid on the original image.
+%      4.  If any of the pixel of structuring element B hit on the original
+%      image A then set the pixel to 0.
 %      5.  Repeat 3 & 4 until all the elements are accessed
 %
 %
