@@ -29,27 +29,20 @@ function noNoiseImg = NoiseRemoval(img)
 
 % Remove noise using open-close operations.
 % strel function to create an structuring element
-strucElement1 = strel('disk',2);
+strucElement = ones(3);
 
 %imclose to apply close operation
-img1 = imclose(img, strucElement1); 
+img1 = imclose(img, strucElement); 
 
 %imclose to apply open operation
-strucElement2 = strel('disk',3);
-noNoiseImg = imopen(img1, strucElement2);
+noNoiseImg = imopen(img1, strucElement);
 
 % Primary image before noise removal
-figure
-imshow(img)
-disp('Original image of "RandomDisks-P10"')
+%figure,imshow(img);
+disp('Original image of "RandomDisks-P10"');
 
 % Image after removing noise
-figure
-imshow(noNoiseImg)
-disp('Image of "RandomDisks-P10" after noise removal')
+%figure, imshow(noNoiseImg);
+disp('Image of "RandomDisks-P10" after noise removal');
 
-
-%converting the datatype of img from double to uint8
-%filtered_img=uint8(filtered_img);
-%imshow(filtered_img);
 

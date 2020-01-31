@@ -22,6 +22,14 @@
 
 function output=intersection(A,B)
 
-output=(double(A)-double(B))==0;
+[m,n]=size(A);
+output=ones(m,n);
+for i=1:m
+    for j=1:n
+        if(A(i,j)==0 && B(i,j)==0)
+            output(i,j)=0;
+        end
+    end
+end
 
 return
