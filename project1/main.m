@@ -24,9 +24,9 @@
 %      convert2binary.m      convert the image to a binary image
 %      Noiseremoval.m        remove the salt and pepper noise from binary image
 %      hitormiss.m           perform the hit and miss transform on the binary image
-%      imwrite.m 
-%      disk.m
-%      highlight_selector.m
+%      imwrite.m             saves the image to disk
+%      disk.m                creates a disk shaped strcuturing elements.
+%      highlight_selector.m  highlights the object in the image.
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/29/2020

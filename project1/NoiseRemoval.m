@@ -9,10 +9,14 @@
 %      noNoiseImg       Final image with no noise.
 %
 % Processing Flow:
-%      1.  
-%      2. 
+%      1.  Create a structuring element B of size(3X3).
+%      2.  Perform the close operation on img using B.
+%      3.  Perform the open operation on closed_img using B.
+%      4.  Remove the borders of the image
 %
-%
+% The following functions are called:
+%      close_op.m   perform the close operation.
+%      open_op.m    perform the open operation.
 %
 %  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/27/2020
