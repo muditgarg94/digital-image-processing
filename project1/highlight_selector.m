@@ -35,5 +35,5 @@ x=imfill(original_img,[row,col]);
 
 new_img=intersection(original_img,complement(x));
 
-
+new_img=new_img==1;
 return
