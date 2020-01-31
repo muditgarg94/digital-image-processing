@@ -38,18 +38,16 @@ if(r==3)
 end
 
 %evaluating the threshold
-val=sum(sum(img));
-threshold=val/(p*q);
-
+threshold=127;
 %creating a binary image
 y=zeros(p,q);
 img=double(img);
 for i=1:p
     for j=1:q
         if(img(i,j)>threshold)
-            y(i,j)=1;
+            y(i,j)=255;
         end
     end
 end
-
+y=y==255;
 return

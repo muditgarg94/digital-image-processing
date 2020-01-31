@@ -28,23 +28,25 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
 %  Date:        1/29/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clear;
 %reading the image
 img=imread('RandomDisks-P10.jpg');
 
 %convert the image to binary
 img=convert2binary(img);
+%figure, imshow(img);
 %imwrite(img,'binaryimage.jpg');
 
 %remove noise using close and open operation
 noNoiseImg = NoiseRemoval(img);
+figure,imshow(noNoiseImg);
 %imwrite(noNoiseImg,'filtered_img.jpg')
 
 %find the disk of largest size using hit and miss transform
-A=~disk(31);
-B=disk(36);
+A=~disk(8);
+B=disk(10);
 
-big=hitandmiss(noNoiseImg,double(A),B);
+big=hitandmiss(noNoiseImg,(A),B);
 figure, imshow(big);
 
 %find the disk of the smallest size using hit and miss transform
