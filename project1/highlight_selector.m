@@ -11,13 +11,17 @@
 %      new_img       highlighted  image
 %
 % Processing Flow:
-%      1.  
-%      2. 
+%      1.  Find the locations in transformed image where pixel=0
+%      2.  Fill the original image at the locations found in step 1.
+%      3.  intersect the original image and and the complement of image
+%      formed in step 2.
+%      4.  Perform the logical operation on new_img
 %
 %   The following functions are called:
-%      find.m      find the locations of the specified pizel
-%      imfill.m    fill image regions
+%      find.m          find the locations of the specified pizel
+%      imfill.m        fill image regions
 %      intersection.m  return the intersection of 2 images
+%      complement.m    return the complement of image passed.
 %
 %  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/31/2020

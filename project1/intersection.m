@@ -10,8 +10,8 @@
 %      output   intersection between A and B
 %
 % Processing Flow:
-%      1.  Subtract the two images.
-%      2.  Check condition if subtraction of 2 images is 0.
+%      1.  Iterate the image
+%      2.  If both the pixels are 0 i.e filled, set the output to 0.
 %      3.  Return the output image.
 %
 %

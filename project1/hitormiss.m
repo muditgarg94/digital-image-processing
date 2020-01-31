@@ -8,11 +8,13 @@
 %      B     second structuring element
 %      
 % Returned Results:
-%      transform       output image after hit and miss transformation
+%      transform       output image after hit-or-miss transformation
 %
 % Processing Flow:
-%      1.  
-%      2. 
+%      1.  Perform the erosion operation on image X using A.
+%      2.  Perform the erosion operation on complement(X) using B.
+%      3.  Find the intersection between the images found in step 1 and
+%      step 2.
 %
 %   The following functions are called:
 %      erosion.m       perform the erosion operation

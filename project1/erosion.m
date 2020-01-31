@@ -15,7 +15,7 @@
 %      3.  Iterate the image such that the entire structuring element is
 %      fit into the image.
 %      4.  If all the values of image and structuring element match, set
-%      eroded_img=1 else set it to 0.
+%      eroded_img=0 else set it to 1.
 %      5.  Repeat 3 & 4 until all the elements are accessed
 %
 %

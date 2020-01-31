@@ -3,15 +3,19 @@
 %      Perform the open operation on image
 %
 % Input Variables:
-%      img     image for which complement needs to be returned.
+%      img     image on which open operation needs to be performed
+%      B       structuring element 
 %      
 % Returned Results:
-%      output   complement of image
+%      output   image opened by B
 %
 % Processing Flow:
-%      1.  Calculate the size of image.
-%      2.  Iterate the image. 
-%      3.  If img(i,j)=1, set output(i,j)=0 else output(i,j)=1
+%      1.  Perform the erosion on image using B.
+%      2.  Perform the dilation on eroded image usng B.
+%
+% The following functions are called:
+%      erosion.m     perform the erosion operation.
+%      dilation.m    perform the dilation operation.
 %
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu

@@ -9,21 +9,24 @@
 %      y       binary image
 %
 % Processing Flow:
-%      1.  Calculate the size of given image.
-%      2.  If it is a colored image, convert it to grayscale image.
-%      3.  Calculate the threshold of a grayscale image. In our code, tnreshold is the avg value of
-%      pixel.
-%      4.  Iterate the grayscaled image. If value > threshold, set value
-%       to 1. Set others as 0.
-%      5. Return the binary image.
+%      1.  Read the image.
+%      2.  convert to binary image.
+%      2.  remove the salt and pepper noise from the binary image.
+%      3.  Create  structuring elements of disk shape of radii 8 and 30.
+%      4.  Create window based structuring element of size 37 and 10.
+%      5.  Perform hit-or-miss operation and get the disks of a specific
+%      size.
+%      6.  Highlight the disks and save them on the machine.
 %
 %
 % The following functions are called:
-%      imread.m            read the image
-%      convert2binary.m    convert the image to a binary image
-%      Noiseremoval.m      remove the salt and pepper noise from binary image
-%      hitandmiss.m        perform the hit and miss transform on the binary image
-% 
+%      imread.m              read the image
+%      convert2binary.m      convert the image to a binary image
+%      Noiseremoval.m        remove the salt and pepper noise from binary image
+%      hitormiss.m           perform the hit and miss transform on the binary image
+%      imwrite.m 
+%      disk.m
+%      highlight_selector.m
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/29/2020
@@ -49,7 +52,7 @@ Ab=~disk(30); %% Generated disk A for biggest disk
 Bb=disk(37); %% Generated w-a mask (B) for biggest disk
 
 %big=erosion(noNoiseImg,As);
-big=hitandmiss(noNoiseImg,Ab,Bb);
+big=hitormiss(noNoiseImg,Ab,Bb);
 big_disk=highlight_selector(noNoiseImg,big);
 figure, imshow(big_disk);
 imwrite(big_disk,'big_disk.gif');
@@ -58,7 +61,7 @@ imwrite(big_disk,'big_disk.gif');
 As=~disk(8); %% Generated disk A for smallest disk
 Bs=disk(10); %% Generated w-a mask (B) for smallest disk
 
-small=hitandmiss(noNoiseImg,As,Bs);
+small=hitormiss(noNoiseImg,As,Bs);
 small_disk=highlight_selector(noNoiseImg,small);
 figure, imshow(small_disk);
 imwrite(small_disk,'small_disk.gif');
