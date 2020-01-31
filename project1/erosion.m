@@ -19,7 +19,7 @@
 %      5.  Repeat 3 & 4 until all the elements are accessed
 %
 %
-%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -10,19 +10,16 @@
 %      closed_img       image after performing close operation
 %
 % Processing Flow:
-%      1.  Calculate the size of given image.
-%      2.  If it is a colored image, convert it to grayscale image.
-%      3.  Calculate the threshold of a grayscale image. In our code, tnreshold is the avg value of
-%      pixel.
-%      4.  Iterate the grayscaled image. If value > threshold, set value
-%       to 1. Set others as 0.
-%      5. Return the binary image.
+%      1.  Perform the dilation operation on image using structuring
+%      element B.
+%      2.  Perform the erosion operation on dilated image using B.
+%      5.  Return the binary image.
 % 
 % The following functions are called:
 %      erosion.m       performs erosion
 %      dilation.m      performs dilation
 %          
-%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/29/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

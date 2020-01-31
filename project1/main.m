@@ -25,7 +25,7 @@
 %      hitandmiss.m        perform the hit and miss transform on the binary image
 % 
 %
-%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/29/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear;

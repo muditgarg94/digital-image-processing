@@ -14,7 +14,7 @@
 %
 %
 %
-%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/27/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function noNoiseImg = NoiseRemoval(img)

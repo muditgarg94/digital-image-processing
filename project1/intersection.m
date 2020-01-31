@@ -15,7 +15,7 @@
 %      3.  Return the output image.
 %
 %
-%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/30/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -11,16 +11,17 @@
 % Processing Flow:
 %      1.  Calculate the size of given image.
 %      2.  If it is a colored image, convert it to grayscale image.
-%      3.  Calculate the threshold of a grayscale image. In our code, tnreshold is the avg value of
-%      pixel.
+%      3.  Find the threshold of a grayscale image. After various tries, it
+%      came out to be 127.
 %      4.  Iterate the grayscaled image. If value > threshold, set value
-%       to 1. Set others as 0.
-%      5. Return the binary image.
+%       to 255. Set others as 0.
+%      5.  Do the logical operation on the image.
+%      5.  Return the binary image.
 %          
 %
 %
 %
-%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Authors:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

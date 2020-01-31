@@ -14,7 +14,7 @@
 %      3.  If img(i,j)=1, set output(i,j)=0 else output(i,j)=1
 %
 %
-%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusaga
+%  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/28/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
