@@ -78,5 +78,5 @@ imwrite(big_noise_img,'NoisyBigRadii.gif');
 small_noise=hitormiss(img,As,Bs);
 small_noise_img=highlight_selector(img,small_noise);
 %figure, imshow(small_noise_img);
-imwrite(big_noise_img,'NoisySmallRadii.gif');
+imwrite(small_noise_img,'NoisySmallRadii.gif');
 
