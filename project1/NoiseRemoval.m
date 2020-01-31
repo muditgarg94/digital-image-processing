@@ -29,13 +29,13 @@ function noNoiseImg = NoiseRemoval(img)
 
 % Remove noise using open-close operations.
 % strel function to create an structuring element
-strucElement = zeros(4);
+strucElement = zeros(3);
 
 %imclose to apply close operation
-img1 = open_op(img, strucElement); 
+img1 = close_op(img, strucElement); 
 %figure, imshow(img1);
 %imclose to apply open operation
-noNoiseImg = close_op(img1, strucElement);
+noNoiseImg = open_op(img1, strucElement);
 %figure,imshow(noNoiseImg);
 
 %removing borders
