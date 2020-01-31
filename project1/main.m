@@ -17,6 +17,7 @@
 %      5.  Perform hit-or-miss operation and get the disks of a specific
 %      size.
 %      6.  Highlight the disks and save them on the machine.
+%      7. Perform the steps 5 and 6 on noisy binary image.
 %
 %
 % The following functions are called:
@@ -65,4 +66,17 @@ small=hitormiss(noNoiseImg,As,Bs);
 small_disk=highlight_selector(noNoiseImg,small);
 figure, imshow(small_disk);
 imwrite(small_disk,'small_disk.gif');
+
+
+% perform hit or miss on noisy image
+
+big_noise=hitormiss(img,Ab,Bb);
+big_noise_img=highlight_selector(img,big_noise);
+%figure, imshow(big_noise_img);
+imwrite(big_noise_img,'NoisyBigRadii.gif');
+
+small_noise=hitormiss(img,As,Bs);
+small_noise_img=highlight_selector(img,small_noise);
+%figure, imshow(small_noise_img);
+imwrite(big_noise_img,'NoisySmallRadii.gif');
 
