@@ -34,7 +34,6 @@ if(r==3)
     green=img(:,:,2);
     blue=img(:,:,3);
     img=0.2989 * red + 0.5870 * green + 0.1140 * blue;
-
 end
 
 %evaluating the threshold

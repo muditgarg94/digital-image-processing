@@ -40,11 +40,25 @@ img=convert2binary(img);
 noNoiseImg = NoiseRemoval(img);
 %imwrite(noNoiseImg,'filtered_img.jpg')
 
-%find the disk of largest size using hit and miss transform
-A=~disk(31);
-B=disk(36);
+%find the zdisk of largest size using hit and miss transform
+%A=~disk(32);
+%B=disk(64);
 
-big=hitandmiss(noNoiseImg,double(A),B);
-figure, imshow(big);
+As=disk_lma(8); %% Generated disk A for smallest disk
+Bs=hole_lma(10); %% Generated w-a mask (B) for smallest disk
+
+Ab=disk_lma(31); %% Generated disk A for biggest disk
+Bb=hole_lma(36); %% Generated w-a mask (B) for biggest disk
+
+%small = hitandmiss_small( noNoiseImg,As,Bs );
+%figure;imshow(small);title('smallest disk');
+%imwrite(small,'smallest_disk.jpg')
+
+
+big = hitandmiss_big(  noNoiseImg,Ab,Bb );
+figure;imshow(big);title('biggest disk');
+imwrite(big,'biggest_disk.jpg')
+%big=hitandmiss(noNoiseImg,double(A),B);
+%figure, imshow(big);
 
 %find the disk of the smallest size using hit and miss transform
