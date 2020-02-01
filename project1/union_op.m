@@ -10,7 +10,7 @@
 %      result       union of img1 and img2
 %
 % Processing Flow:
-%      1.  create a matrix of zeros with a size of any of the image
+%      1.  create a matrix of ones with a size of any of the image
 %           (Assuming both the images are of same size)
 %      2.  Iterate the matrix. If any of the images at current pixel has
 %      value 0, set the value to 0
