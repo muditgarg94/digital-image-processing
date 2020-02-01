@@ -28,6 +28,7 @@
 %      imwrite.m             saves the image to disk
 %      disk.m                creates a disk shaped strcuturing elements.
 %      highlight_selector.m  highlights the object in the image.
+%      union_op.m            Performs union on 2 images
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        1/29/2020
@@ -67,6 +68,9 @@ small_disk=highlight_selector(noNoiseImg,small);
 figure, imshow(small_disk);
 imwrite(small_disk,'small_disk.gif');
 
+joined_img=union_op(big_disk,small_disk);
+figure, imshow(joined_img);
+imwrite(joined_img,'union_img.gif');
 
 % perform hit or miss on noisy image
 
