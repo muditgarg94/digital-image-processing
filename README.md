@@ -9,7 +9,8 @@
  3. Mayank Murali
 
 
-**Details of Project 1:**\\
+**Details of Project 1:**
+
 The task of project 1 is to find the smallest disk and largest disk in the RandomDisks Image using mathematical morphology operations.
 * Firstly, salt & pepper noise is removed from the image using close and open operation.
 * A disk shaped structuring element is selected and hit-or-miss transform is performed.
