@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% thinnig.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -19,24 +19,11 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/16/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
-%reading both images (bear.gif and penn256.gif)
-img = ["bear.gif" ; "penn256.gif"];
-
-bear=imread(img(1));
-penn=imread(img(2));
-
-% generate the 16 structuring elements
-b_1b=[0,0,0;1,1,1;1,1,1];
-b_1f=[1,1,1;1,0,1;0,0,0];
 
 
-%perform Hit or miss transformation
+function thin=thinning(x,b_f,b_b)
 
-% Do Xi - corresponding hit or miss transform
-
-
-
-
-
-
+hmt=hitormiss(x,b_f,b_b);
+hmt_comp=complement(hmt);
+thin=intersection
+return
