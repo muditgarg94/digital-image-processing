@@ -1,11 +1,8 @@
 %%%%%%%%%%%%% thinnig.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
+%       Perform the thinning operation
 %
 % Input Variables:
-%       img     array of images
-%       bear    bear image
-%       penn    penn256 image
 %      
 % Returned Results:
 %       y       binary image
@@ -26,4 +23,5 @@ function thin=thinning(x,b_f,b_b)
 hmt=hitormiss(x,b_f,b_b);
 hmt_comp=complement(hmt);
 thin=intersection(x,hmt_comp);
+
 return
