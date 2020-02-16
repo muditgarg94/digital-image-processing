@@ -27,19 +27,35 @@
 function dil=dilation(A,B)
 
 [m,n]=size(A);
-[p,q]=size(B);
-dil=ones(m,n);
-for i=1:m
-    for j=1:n
-        if A(i,j)==0
-            for k=1:p
-                for l=1:q
-                    if(B(k,l)==0)
-                        dil(i+k,j+l)=0;
-                    end
+
+p=round(size(B,1)/2);
+q=round(size(B,2)/2);
+dil=A;
+
+for i=p:m-p
+    for j=q:n-q
+        flag=true;
+        b_i=1;
+        for new_i=i-p+1:i+p-1
+            b_j=1;
+            for new_j=j-q+1:j+q-1
+                if(B(b_i,b_j)==0 && A(new_i,new_j)==0)
+                    flag=false;
+                    break;
                 end
+                b_j=b_j+1;
             end
+            b_i=b_i+1;
         end
+        if(flag)
+            %disp('i='+i);
+            %disp('j='+j);
+            dil(i,j)=1;
+        else
+            dil(i,j)=0;
+        end
+        
     end
 end
+
 return

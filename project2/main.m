@@ -24,19 +24,30 @@ clc;clear;
 img = ["bear.gif" ; "penn256.gif"];
 
 bear=imread(img(1));
+bear=bear==1;
+
 penn=imread(img(2));
-
+penn=penn==1;
 % generate the 16 structuring elements
-bb=zeros(3,3,8,1);
-bf=zeros(3,3,8,1);
-b1_b=[0,0,0;1,1,1;1,1,1];
-b1_f=[1,1,1;1,0,1;0,0,0];
+bb=zeros(3,3,8);
+bf=zeros(3,3,8);
+bb(:,:,1)=[1,1,1;0,0,0;0,0,0];
+bf(:,:,1)=[0,0,0;1,1,0;1,1,1];
+bb(:,:,2)=[0,1,1;0,0,1;0,0,0];
+bf(:,:,2)=[0,0,0;1,1,0;1,1,0];
+bb(:,:,3)=[0,0,1;0,0,1;0,0,1];
+bf(:,:,3)=[1,0,0;1,1,0;1,0,0];
+bb(:,:,4)=[0,0,0;0,0,1;0,1,1];
+bf(:,:,4)=[1,1,0;1,1,0;0,0,0];
+
+for i=1:4
+    bb(:,:,i+4)=rotate180(bb(:,:,i));
+    bf(:,:,i+4)=rotate180(bf(:,:,i));
+end
 
 
-
-
-
-
+bear_skeleton=skeletonization(bear,bf,bb);
+penn_skeleton=skeletonization(penn,bf,bb);
 
 
 
