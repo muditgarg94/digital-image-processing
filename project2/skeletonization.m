@@ -3,9 +3,9 @@
 %       Perform the homotopic skeletonization on images
 %
 % Input Variables:
-%       img     array of images
-%       b_f
-%       b_b
+%       image   Inputs an image 
+%       b_b     Structuring element B - background
+%       b_f      Structuring element B - foreground
 %      
 % Returned Results:
 %       y       binary image
@@ -20,19 +20,19 @@
 %  Date:        02/16/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function skeleton=skeletonization(img,bf,bb)
+function skeleton=skeletonization(image, b_f, b_b)
 
-init=img;
-skeleton=img;
+initImg = image;
+skeleton = image;
 
 while true
-    for j=1:size(bf,3)
-        skeleton=thinning(skeleton,bf(:,:,j),bb(:,:,j));
+    for j = 1 : size(b_f,3)
+        skeleton = thinning(skeleton, b_f(:,:,j), b_b(:,:,j));
     end
-    if(skeleton==init)
+    if(skeleton == initImg)
         break;
     end
-    init=skeleton;
+    initImg = skeleton;
 
 end
 

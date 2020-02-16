@@ -26,17 +26,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function transform=hitandmiss(X,A,B)
+function transform = hitormiss(X, B, A)
 
-img1 = erosion(X,A);
+img1 = erosion(X, A);
 %figure, imshow(img1);
-compl=complement(X);
-img2=erosion(compl,B);
+compl = complement(X);
+img2 = erosion(compl, B);
 %figure, imshow(img2);
-transform=intersection(img1,img2);
-
-
-
+transform = intersection(img1, img2);
 
 return
 

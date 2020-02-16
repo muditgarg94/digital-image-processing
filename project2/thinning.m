@@ -18,10 +18,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function thin=thinning(x,b_f,b_b)
+function thin = thinning(X, b_f, b_b)
 
-hmt=hitormiss(x,b_f,b_b);
-hmt_comp=complement(hmt);
-thin=intersection(x,hmt_comp);
+hmt = hitormiss(X, b_f, b_b);
+hmt_comp = complement(hmt);
+thin = intersection(X, hmt_comp);
 
 return
