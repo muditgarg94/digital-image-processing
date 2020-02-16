@@ -27,13 +27,13 @@ bear=imread(img(1));
 penn=imread(img(2));
 
 % generate the 16 structuring elements
-b_1b=[0,0,0;1,1,1;1,1,1];
-b_1f=[1,1,1;1,0,1;0,0,0];
+bb=zeros(3,3,8,1);
+bf=zeros(3,3,8,1);
+b1_b=[0,0,0;1,1,1;1,1,1];
+b1_f=[1,1,1;1,0,1;0,0,0];
 
 
-%perform Hit or miss transformation
 
-% Do Xi - corresponding hit or miss transform
 
 
 

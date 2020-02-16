@@ -20,14 +20,14 @@
 %  Date:        02/16/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function skeleton=skeletonization(img,b_f,b_b)
+function skeleton=skeletonization(img,bf,bb)
 
 init=img;
 skeleton=img;
 
 while true
-    for j=1:8
-        skeleton=thinning(skeleton,b_f(j),b_b(j));
+    for j=1:size(bf,3)
+        skeleton=thinning(skeleton,bf(:,:,j),bb(:,:,j));
     end
     if(skeleton==init)
         break;
