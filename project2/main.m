@@ -34,7 +34,7 @@ penn = imread(img(2));
 penn = penn == 1;
 
 %% Generate the 16 structuring elements for performing Skeletonization
-%  bb denotes structuring element B - background and
+%  bb denotes structuring element B - background,
 %  bf denotes structuring element B - foreground.
 
 bb = zeros(3,3,8);
@@ -59,5 +59,13 @@ bear_skeleton = skeletonization(bear, bf, bb);
 
 penn_skeleton = skeletonization(penn, bf, bb);
 
+figure, imshow(bear)
+title('Bear image - original')
+figure, imshow(bear_skeleton)
+title('Bear image - after homotopic skeletonization')
+figure, imshow(penn)
+title('PennState image - original')
+figure, imshow(penn_skeleton)
+title('PennState image - after homotopic skeletonization')
 
 
