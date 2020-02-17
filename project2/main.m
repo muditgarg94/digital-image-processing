@@ -59,6 +59,17 @@ bear_skeleton = skeletonization(bear, bf, bb);
 
 penn_skeleton = skeletonization(penn, bf, bb);
 
+
+
+%printing structuring elements
+for i = 1 : 4
+    figure, imshow(bb(:,:,i))
+    title('Structuring element background')
+    figure, imshow(bf(:,:,i))
+    title('Structuring element foreground')
+end
+
+%printing input and output
 figure, imshow(bear)
 title('Bear image - original')
 figure, imshow(bear_skeleton)
