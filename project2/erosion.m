@@ -39,7 +39,7 @@ for i=p:m-p
         for new_i=i-p+1:i+p-1
             b_j=1;
             for new_j=j-q+1:j+q-1
-                if(B(b_i,b_j)==0 && A(new_i,new_j)==1)
+                if(B(b_i,b_j)==1 && A(new_i,new_j)==0)
                     flag=false;
                     break;
                 end
@@ -50,9 +50,9 @@ for i=p:m-p
         if(flag)
             %disp('i='+i);
             %disp('j='+j);
-            eroded_val(i,j)=0;
-        else
             eroded_val(i,j)=1;
+        else
+            eroded_val(i,j)=0;
         end
         
     end

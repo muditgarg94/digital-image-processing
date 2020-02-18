@@ -23,7 +23,7 @@
 %  Date:        02/16/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clc;clear;clear all;
+clc;clear;
 %reading both images ("bear.gif" and "penn256.gif")
 img = ["bear.gif" ; "penn256.gif"];
 
@@ -47,6 +47,14 @@ bb(:,:,3) = [0,0,1;0,0,1;0,0,1];
 bf(:,:,3) = [1,0,0;1,1,0;1,0,0];
 bb(:,:,4) = [0,0,0;0,0,1;0,1,1];
 bf(:,:,4) = [1,1,0;1,1,0;0,0,0];
+% bb(:,:,1) = [0,0,0;1,1,1;1,1,1];
+% bf(:,:,1) = [1,1,1;0,0,1;0,0,0];
+% bb(:,:,2) = [1,0,0;1,1,0;1,1,1];
+% bf(:,:,2) = [1,1,1;0,0,1;0,0,1];
+% bb(:,:,3) = [1,1,0;1,1,0;1,1,0];
+% bf(:,:,3) = [0,1,1;0,0,1;0,1,1];
+% bb(:,:,4) = [1,1,1;1,1,0;1,0,0];
+% bf(:,:,4) = [0,0,1;0,0,1;1,1,1];
 
 for i = 1 : 4
     bb(:,:,i+4) = rotate180(bb(:,:,i));
@@ -60,14 +68,14 @@ bear_skeleton = skeletonization(bear, bf, bb);
 penn_skeleton = skeletonization(penn, bf, bb);
 
 
-
+%% testing
 %printing structuring elements
-for i = 1 : 4
-    figure, imshow(bb(:,:,i))
-    title('Structuring element background')
-    figure, imshow(bf(:,:,i))
-    title('Structuring element foreground')
-end
+%for i = 1 : 4
+%    figure, imshow(bb(:,:,i))
+%    title('Structuring element background')
+%    figure, imshow(bf(:,:,i))
+%    title('Structuring element foreground')
+%end
 
 %printing input and output
 figure, imshow(bear)
