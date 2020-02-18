@@ -23,11 +23,11 @@
 function output=intersection(A,B)
 
 [m,n]=size(A);
-output=ones(m,n);
+output=zeros(m,n);
 for i=1:m
     for j=1:n
-        if(A(i,j)==0 && B(i,j)==0)
-            output(i,j)=0;
+        if(A(i,j)==1 && B(i,j)==1)
+            output(i,j)=1;
         end
     end
 end
