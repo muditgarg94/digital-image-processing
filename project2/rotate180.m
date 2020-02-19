@@ -17,14 +17,17 @@
 %  Date:        02/16/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function x=rotate180(x)
+function rotate_img=rotate180(x)
 [m,n]=size(x);
-
-for i=1:m/2
-    for j=1:n
-        tmp=x(i,j);
-        x(i,j)=x(m-i+1,n-j+1);
-        x(m-i+1,n-j+1)=tmp;
+p=1;
+rotate_img=zeros(m,n);
+for i = m:-1:1 
+    q=1;
+    for j = n:-1:1
+            rotate_img(p,q)=x(i,j);
+            q=q+1;
     end
+    p=p+1;
 end
+           
 return
