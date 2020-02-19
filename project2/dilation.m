@@ -25,22 +25,21 @@
 
 
 function dil=dilation(A,B)
-
 [m,n]=size(A);
 
 p=round(size(B,1)/2);
 q=round(size(B,2)/2);
-dil=A;
+dil=zeros(m,n);
 
 for i=p:m-p
     for j=q:n-q
-        flag=true;
+        flag=false;
         b_i=1;
         for new_i=i-p+1:i+p-1
             b_j=1;
             for new_j=j-q+1:j+q-1
                 if(B(b_i,b_j)==1 && A(new_i,new_j)==1)
-                    flag=false;
+                    flag=true;
                     break;
                 end
                 b_j=b_j+1;
@@ -50,8 +49,6 @@ for i=p:m-p
         if(flag)
             %disp('i='+i);
             %disp('j='+j);
-            dil(i,j)=0;
-        else
             dil(i,j)=1;
         end
         
