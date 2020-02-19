@@ -26,7 +26,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function transform = hitormiss(X, B, A)
+function transform = hitormiss(X, A, B)
 
 img1 = erosion(X, A);
 %figure, imshow(img1);

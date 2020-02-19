@@ -29,6 +29,8 @@ while true
     for j = 1 : size(b_f,3)
         skeleton = thinning(skeleton, b_f(:,:,j), b_b(:,:,j));
     end
+    %figure, imshow(skeleton);
+    %figure, imshow(initImg);
     if(skeleton == initImg)
         break;
     end

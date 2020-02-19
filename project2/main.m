@@ -78,13 +78,13 @@ penn_skeleton = skeletonization(penn, bf, bb);
 %end
 
 %printing input and output
-figure, imshow(bear)
-title('Bear image - original')
-figure, imshow(bear_skeleton)
-title('Bear image - after homotopic skeletonization')
-figure, imshow(penn)
-title('PennState image - original')
-figure, imshow(penn_skeleton)
-title('PennState image - after homotopic skeletonization')
+% figure, imshow(bear)
+% title('Bear image - original')
+ figure, imshow(bear_skeleton)
+ title('Bear image - after homotopic skeletonization')
+% figure, imshow(penn)
+% title('PennState image - original')
+ figure, imshow(penn_skeleton)
+ title('PennState image - after homotopic skeletonization')
 
 
