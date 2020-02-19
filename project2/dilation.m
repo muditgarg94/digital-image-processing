@@ -25,33 +25,35 @@
 
 
 function dil=dilation(A,B)
-[m,n]=size(A);
 
-p=round(size(B,1)/2);
-q=round(size(B,2)/2);
+[m,n]=size(A);
+[p,q]=size(B);
+
+[imgx,imgy] = find(A); % location of 1s in the image
+[sex,sey] = find(B); % location of 1s in structuring element
+
+% now get indices of structuring elements relative to the centre of the array
+sex = sex - floor(p/2) - 1;
+sey = sey - floor(q/2) - 1;
+
 dil=zeros(m,n);
 
-for i=p:m-p
-    for j=q:n-q
-        flag=false;
-        b_i=1;
-        for new_i=i-p+1:i+p-1
-            b_j=1;
-            for new_j=j-q+1:j+q-1
-                if(B(b_i,b_j)==1 && A(new_i,new_j)==1)
-                    flag=true;
-                    break;
-                end
-                b_j=b_j+1;
-            end
-            b_i=b_i+1;
+% loop over each white pixel in the image
+for i = 1:numel(imgx)
+    % these are just the indices of the pixel
+    r1 = imgx(i);
+    c1 = imgy(i);
+
+    % now loop over each non-zero element of the structuring array
+    for j = 1:numel(sex)
+        % the position of the pixel to change is (r,c)
+        r = r1+sex(j);
+        c = c1+sey(j);
+
+        % if the pixel is inside the image, we make it a 1
+        if r>0 && c>0 && r<=m && c<=n
+            dil(r,c) = 1;
         end
-        if(flag)
-            %disp('i='+i);
-            %disp('j='+j);
-            dil(i,j)=1;
-        end
-        
     end
 end
 
