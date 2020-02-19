@@ -22,6 +22,24 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+clc;clear;
 
 B=ones(3);
+
+match1=imread('match1.gif');
+match1=match1==1;
+
+%find the bounding boxes
+img=logical(match1);
+prop=regionprops(img,'BoundingBox');
+boxes=zeros(length(prop),4);
+%boxes=[prop.BoundingBox];
+
+for i=1:length(prop)
+    coordinates=prop(i).BoundingBox;
+    boxes(i,:)=coordinates;
+end
+
+
+
+
