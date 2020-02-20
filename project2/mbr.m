@@ -32,7 +32,7 @@ boxes=zeros(length(prop),4);
 figure, imshow(img);
 for i=1:length(prop)
     coordinates=prop(i).BoundingBox;
-    rectangle('Position',coordinates,'EdgeColor','r','LineWidth',2);
+    rectangle('Position',coordinates,'EdgeColor','r','LineWidth',1);
     boxes(i,:)=coordinates;
 end
 
