@@ -36,10 +36,13 @@ match1 = match1 == 1;
 %     rectangle('Position', bounds(i,:), 'EdgeColor', 'g');
 % end
 
-% for i=1:size(obj_img,3)
-%     name=append('obj',num2str(i));
-%     imwrite(obj_img(:,:,i),append(name,'.png'));
-% end
+ for i=1:size(obj_img,3)
+     name_ext=split(img,'.');
+     name=name_ext(1);
+     filename=sprintf('obj%d_%s.png',i,name{1});
+
+     imwrite(obj_img(:,:,i),filename);
+ end
 
 un = zeros(4, 12);
 mx = zeros(4, 1);
