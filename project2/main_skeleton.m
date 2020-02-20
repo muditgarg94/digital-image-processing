@@ -8,16 +8,19 @@
 %       penn    penn256 image
 %      
 % Returned Results:
-%       y       binary image
+%       bear_skeleton       skeleton image of "bear.gif" after performing
+%                           thinning.
+%       penn_skeleton       skeleton image of "penn256.gif" after performing
+%                           thinning.
 %
-% Processing Flow:
+% Process Flow:
 %       1.  Read images "bear.gif" and "penn256.gif".
 %       2.  Create the structuring element B, both background and
 %           foreground.
 %       3.  Call skeltonization function for both images individually to
 %           perfor homotopic skeletonization.
 %
-% The following functions are called:
+% The following functions are called: skeletonization
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/16/2020

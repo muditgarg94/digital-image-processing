@@ -1,30 +1,25 @@
 %%%%%%%%%%%%% pectrum.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
+%       Calculate pectrum for the given image
 %
 % Input Variables:
-%       img     array of images
-%       bear    bear image
-%       penn    penn256 image
+%       size_dis     
+%       total_area    
 %      
 % Returned Results:
-%       y       binary image
+%       pecs 
 %
 % Processing Flow:
-%       1.  Read images "bear.gif" and "penn256.gif".
-%       2.  Create the structuring element B, both background and
-%           foreground.
-%       3.  Call skeltonization function for both images individually to
-%           perfor homotopic skeletonization.
+%       1.  
 %
-% The following functions are called:
+% The following functions are called: None
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function pecs=pectrum(size_dis,total_area)
+function pecs = pectrum(size_dis,total_area)
 
 [m,n]=size(size_dis);
 pecs=zeros(m,n);

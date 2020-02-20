@@ -1,23 +1,21 @@
 %%%%%%%%%%%%% calculate_area.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
+%       To calculate the area 
 %
 % Input Variables:
-%       img     array of images
-%       bear    bear image
-%       penn    penn256 image
+%       img        array of images
+%       mbr_dim     ------------------
 %      
 % Returned Results:
-%       y       binary image
+%       area       calculated area for the image
 %
 % Processing Flow:
-%       1.  Read images "bear.gif" and "penn256.gif".
-%       2.  Create the structuring element B, both background and
-%           foreground.
-%       3.  Call skeltonization function for both images individually to
-%           perfor homotopic skeletonization.
+%       1.  Obtain dimensions such as height, width, xmin and ymin from
+%           mbr_dim.
+%       2.  Set area, default to 0.
+%       3.  Run nested loop to calculate area if the pixel denotes '1'.
 %
-% The following functions are called:
+% The following functions are called: None.
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
