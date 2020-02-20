@@ -44,7 +44,7 @@ for i = 1 : size(obj_img, 3)
 end
 
 
-fn=pectrum(un,mx);
+fn=pecstrum(un,mx);
 %plot(fn);
 shp_complex=complexity(fn);
 

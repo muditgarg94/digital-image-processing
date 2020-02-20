@@ -19,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function pecs = pectrum(size_dis,total_area)
+function pecs = pecstrum(size_dis,total_area)
 
 [m,n]=size(size_dis);
 pecs=zeros(m,n);
