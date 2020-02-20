@@ -21,4 +21,15 @@
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20c/2020
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;clear;
+
+[sd1,fn1,cmplx1]=granular_analysis('shadow1.gif');
+    
+[sd2,fn2,cmplx2]=granular_analysis('match3.gif');
+
+% plot size distribution sd1 
+
+% plot pecstrum fn1
+
+distance=dist_calculation(fn1,fn2,1);

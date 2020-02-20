@@ -32,6 +32,6 @@ clc;clear;
 
 % plot pecstrum fn1
 
-%dist=dist_calculation(fn1,fn2,1);
+distance=dist_calculation(fn1,fn2,1);
 
 
