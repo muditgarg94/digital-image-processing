@@ -19,19 +19,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function distance=dist_calculation(fn, frn)
+function distance=dist_calculation(fn, frn,wt)
 
-% assuming weight is 1
-distance=zeros(4,1);
 [m,n]=size(fn);
+distance=zeros(m,m);
+
 
 for i=1:m
-    val=0;
     for j=1:n
-        val=val+((fn(i)-frn(i)).^2);
+        q=1;
+        while q<=4
+            distance(i,q)=distance(i,q)+((fn(i,j)-frn(q,j)).^2);
+            q=q+1;
+        end
     end
-    distance(i)=sqrt(val);
 end
 
-
+distance=distance.*wt;
 return

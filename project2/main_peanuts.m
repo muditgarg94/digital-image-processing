@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main_peanuts.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -20,18 +20,5 @@
 % The following functions are called:
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        02/19/2020
+%  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
-
-[sd1,fn1,cmplx1]=granular_analysis('match1.gif');
-    
-[sd2,fn2,cmplx2]=granular_analysis('match3.gif');
-
-% plot size distribution sd1 
-
-% plot pecstrum fn1
-
-%dist=dist_calculation(fn1,fn2,1);
-
-

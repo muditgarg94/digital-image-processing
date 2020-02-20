@@ -30,11 +30,16 @@ match1 = match1 == 1;
 %find the  minimum bounding boxes
 [bounds, obj_img] = mbr(match1);
 
-figure, imshow(match1);
+% figure, imshow(match1);
+% 
+% for i = 1 : size(bounds, 1)
+%     rectangle('Position', bounds(i,:), 'EdgeColor', 'g');
+% end
 
-for i = 1 : size(bounds, 1)
-    rectangle('Position', bounds(i,:), 'EdgeColor', 'g');
-end
+% for i=1:size(obj_img,3)
+%     name=append('obj',num2str(i));
+%     imwrite(obj_img(:,:,i),append(name,'.png'));
+% end
 
 un = zeros(4, 12);
 mx = zeros(4, 1);
