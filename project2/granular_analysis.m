@@ -22,10 +22,22 @@
 
 
 
-function[un,fn,shp_complex] = granular_analysis(img)
+function[un,fn,shp_complex] = granular_analysis(img,labels_to_be_filled)
 
 match1 = imread(img);
 match1 = match1 == 1;
+
+if nargin==2
+    lbl=bwlabel(match1);
+    for i=1: length(labels_to_be_filled)
+        [r,c]=find(lbl==labels_to_be_filled(i));
+        for p=1:length(r)
+            for q=1:length(c)
+                match1(r(p),c(q))=0;
+            end
+        end
+    end
+end
 
 %find the  minimum bounding boxes
 [bounds, obj_img] = mbr(match1);

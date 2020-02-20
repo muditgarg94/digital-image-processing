@@ -24,12 +24,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc;clear;
 
-[sd1,fn1,cmplx1]=granular_analysis('shadow1.gif');
-    
-[sd2,fn2,cmplx2]=granular_analysis('match3.gif');
 
-% plot size distribution sd1 
+%fill labels 2,4,5,7,8,10
+[sd3,fn3,cmplx3]=granular_analysis('shadow1.gif',[2,4,5,7,8,10]); 
 
-% plot pecstrum fn1
+%fill lables 1,4,5,7,9
+[sd4,fn4,cmplx4]=granular_analysis('shadow1rotated.gif',[1,4,5,7,9]);
 
-distance=dist_calculation(fn1,fn2,1);
+
+
+%distance=dist_calculation(fn1,fn2,1);
