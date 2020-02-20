@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% size_distribution.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -22,17 +22,8 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
 
-B=ones(3);
+function size_distribution(img, boxes, B)
 
-match1=imread('match1.gif');
-match1=match1==1;
-
-%find the  minimum bounding boxes
-boxes=mbr(match1);
-
-size_distribution(match1,boxes,B);
-
-
+end
 

@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% mbr.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -22,17 +22,21 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
+function boxes= mbr(img)
 
-B=ones(3);
+%find the bounding boxes
+prop=regionprops(logical(img),'BoundingBox');
+boxes=zeros(length(prop),4);
+%boxes=[prop.BoundingBox];
 
-match1=imread('match1.gif');
-match1=match1==1;
+figure, imshow(img);
+for i=1:length(prop)
+    coordinates=prop(i).BoundingBox;
+    rectangle('Position',coordinates,'EdgeColor','r','LineWidth',2);
+    boxes(i,:)=coordinates;
+end
 
-%find the  minimum bounding boxes
-boxes=mbr(match1);
-
-size_distribution(match1,boxes,B);
+end
 
 
 
