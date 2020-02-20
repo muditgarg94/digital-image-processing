@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% pectrum.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -20,34 +20,20 @@
 % The following functions are called:
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        02/19/2020
+%  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
 
-B=ones(3);
 
-match1=imread('match1.gif');
-match1=match1==1;
+function pecs=pectrum(size_dis,total_area)
 
-%find the  minimum bounding boxes
-[bounds, obj_img]=mbr(match1);
+[m,n]=size(size_dis);
+pecs=zeros(m,n);
 
-figure, imshow(match1);
-for i=1:size(bounds,1)
-    rectangle('Position',bounds(i,:),'EdgeColor','g');
+
+for i=1:m
+    for j=1:n-1
+        pecs(i,j)=((size_dis(i,j)-size_dis(i,j+1))/total_area(i));
+    end
 end
 
-un=zeros(4,12);
-mx=zeros(4,1);
-for i=1:size(obj_img,3)
-    un(i,:)=size_distribution(obj_img(:,:,i),bounds(i,:));
-    mx(i)=calculate_area(obj_img(:,:,i),bounds(i,:));
-end
-
-
-fn=pectrum(un,mx);
-%plot(fn);
-
-shp_complex=complexity(fn);
-
-
+return
