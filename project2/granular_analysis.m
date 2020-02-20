@@ -39,9 +39,9 @@ match1 = match1 == 1;
  for i=1:size(obj_img,3)
      name_ext=split(img,'.');
      name=name_ext(1);
-     filename=sprintf('obj%d_%s.png',i,name{1});
+     filename=sprintf('obj%d_%s.gif',i,name{1});
 
-     imwrite(obj_img(:,:,i),filename);
+     imwrite(obj_img(:,:,i)==1,filename);
  end
 
 un = zeros(4, 12);
