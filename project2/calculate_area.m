@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% size_distribution.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% calculate_area.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       Perform the homotopic skeletonization on penn256 and bear images
 %
@@ -23,16 +23,19 @@
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function sdis=size_distribution(img, mbr_dim)
 
-sdis=zeros(1,12);
-for radius=1:12
-    rB=ones(3+2*(radius-1));
-    opened_img=open_op(img,rB);
-    area=calculate_area(opened_img,mbr_dim);
-    sdis(radius)=area;
+function area=calculate_area(img,mbr_dim)
+
+xmin=mbr_dim(1);
+ymin=mbr_dim(2);
+width=mbr_dim(3);
+height=mbr_dim(4);
+area=0;
+for i=ymin:height+ymin
+    for j=xmin:width+xmin
+        if img(i,j)==1
+            area=area+1;
+        end
+    end
 end
-
-%disp(sdis);
 return
-

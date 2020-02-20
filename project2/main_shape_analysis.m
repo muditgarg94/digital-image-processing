@@ -30,9 +30,19 @@ match1=imread('match1.gif');
 match1=match1==1;
 
 %find the  minimum bounding boxes
-boxes=mbr(match1);
+[bounds, obj_img]=mbr(match1);
 
-size_distribution(match1,boxes,B);
+figure, imshow(match1);
+for i=1:size(bounds,1)
+    rectangle('Position',bounds(i,:),'EdgeColor','g');
+end
+
+un=zeros(4,12);
+
+for i=1:size(obj_img,3)
+    un(i,:)=size_distribution(obj_img(:,:,i),bounds(i,:));
+end
+
 
 
 

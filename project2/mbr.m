@@ -22,21 +22,33 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function boxes= mbr(img)
+function [bounds, obj_img]= mbr(img)
 
-%find the bounding boxes
-prop=regionprops(logical(img),'BoundingBox');
-boxes=zeros(length(prop),4);
-%boxes=[prop.BoundingBox];
-
-figure, imshow(img);
-for i=1:length(prop)
-    coordinates=prop(i).BoundingBox;
-    rectangle('Position',coordinates,'EdgeColor','r','LineWidth',1);
-    boxes(i,:)=coordinates;
+[labeled_img,object_count]=bwlabel(img);
+% disp(object_count);
+[m,n]=size(img);
+obj_img=zeros(m,n,object_count);
+bounds=zeros(object_count,4);
+for label=1:object_count
+    output=zeros(m,n);
+    [r,c]=find(labeled_img==label);
+    %form the image
+     for i=1:length(r)
+         output(r(i),c(i))=1;
+     end
+    xmin=min(c)-1;
+    xmax=max(c)+1;
+    ymin=min(r)-1;
+    ymax=max(r)+1;
+    bounds(label,:)=[xmin ymin xmax-xmin ymax-ymin];
+    obj_img(:,:,label)=output;
+%     figure, imshow(output);
+%     rectangle('Position',[xmin ymin xmax-xmin ymax-ymin],'EdgeColor','r');
 end
 
-end
+%disp(bounds);
+
+return
 
 
 
