@@ -28,4 +28,10 @@ clc;clear;
     
 [sd2,fn2,cmplx2]=granular_analysis('match3.gif');
 
+% plot size distribution sd1 
+
+% plot pecstrum fn1
+
+dist=dist_calculation(fn1,fn2);
+
 
