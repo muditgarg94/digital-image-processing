@@ -4,7 +4,7 @@
 %
 % Input Variables:
 %       img        array of images
-%       mbr_dim     ------------------
+%       mbr_dim    dimensions of minimum bounding rectangle (MBR)
 %      
 % Returned Results:
 %       area       calculated area for the image

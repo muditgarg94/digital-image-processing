@@ -1,41 +1,36 @@
 %%%%%%%%%%%%% complexity.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
+%       To calculate the measure of complexity an image H(X|B) as per
+%       Maragos-Schafer, eq.(40).
 %
 % Input Variables:
-%       img     array of images
-%       bear    bear image
-%       penn    penn256 image
+%       pectrum     the pectrum of the image
 %      
 % Returned Results:
-%       y       binary image
+%       entropy     the average uncertainity or entropy
 %
 % Processing Flow:
-%       1.  Read images "bear.gif" and "penn256.gif".
-%       2.  Create the structuring element B, both background and
-%           foreground.
-%       3.  Call skeltonization function for both images individually to
-%           perfor homotopic skeletonization.
+%       1.  	Q
 %
-% The following functions are called:
+% The following functions are called: pectrum
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function entropy=complexity(pectrum)
+function entropy = complexity(pectrum)
 
-[m,n]=size(pectrum);
-entropy=zeros(m,1);
-for i=1:m
-    val=0;
-    for j=1:n
-        if(pectrum(i,j)~=0)
-            cal=-pectrum(i,j)*log2(pectrum(i,j));
-            val=val+cal;
+[m, n] = size(pectrum);
+entropy = zeros(m, 1);
+for i = 1 : m
+    val = 0;
+    for j = 1 : n
+        if(pectrum(i,j)~= 0)
+            cal =- pectrum(i,j) * log2(pectrum(i,j));
+            val = val + cal;
         end
     end
-    entropy(i)=val;
+    entropy(i) = val;
 end
 
 return

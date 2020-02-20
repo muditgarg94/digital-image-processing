@@ -27,8 +27,13 @@ pecs=zeros(m,n);
 
 for i=1:m
     for j=1:n-1
-        pecs(i,j)=((size_dis(i,j)-size_dis(i,j+1))/total_area(i));
+        pecs(i,j)=((size_dis(i,j)-size_dis(i,j+1))/total_area(i));         
     end
 end
+        %plotting pectral 
+        %pecstralPlot = plot(pecs);
+        %xlabel = 'x';
+        %ylabel = 'f(x)';
+        %title('Pectrum diagram');
 
 return
