@@ -24,9 +24,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc;clear;
 
-[sd1,fn1,cmplx1]=granular_analysis('match1.gif');
+[sd1,fn1,cmplx1]=granular_analysis('match1.gif',true);
     
-[sd2,fn2,cmplx2]=granular_analysis('match3.gif');
+[sd2,fn2,cmplx2]=granular_analysis('match3.gif',true);
 
 % plot size distribution sd1 
 

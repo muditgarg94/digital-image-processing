@@ -22,12 +22,12 @@
 
 
 
-function[un,fn,shp_complex] = granular_analysis(img,labels_to_be_filled)
+function[un,fn,shp_complex] = granular_analysis(img,cmplx,labels_to_be_filled)
 
 match1 = imread(img);
 match1 = match1 == 1;
 
-if nargin==2
+if nargin==3
     lbl=bwlabel(match1);
     for i=1: length(labels_to_be_filled)
         [r,c]=find(lbl==labels_to_be_filled(i));
@@ -66,6 +66,8 @@ end
 
 fn=pecstrum(un,mx);
 %plot(fn);
-shp_complex=complexity(fn);
+if cmplx==true
+    shp_complex=complexity(fn);
+end
 
 return
