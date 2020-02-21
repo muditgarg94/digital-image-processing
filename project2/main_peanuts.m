@@ -19,7 +19,7 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc; clear;
+ clear;
 
 
 %fill labels 2,4,5,7,8,10
@@ -30,4 +30,6 @@ clc; clear;
 
 
 % In this case, taking shadow1 as referenced image
-distance=dist_calculation(fn2,fn1,[0.022,0.037,0.09,0.62])
+%wt=[0.0262 0.0220 0.0377 0.0502 0.1444 0.3431 0 0.3556 0 0 0 0];
+wt= [1,1,1,1,1,1,1,1,1,0,1,0];  
+distance=dist_calculation(fn1,fn2,wt)

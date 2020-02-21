@@ -30,11 +30,13 @@ for i=1:m
     for j=1:n
         q=1;
         while q<=4
-            distance(i,q)=distance(i,q)+(wt(q)*((pecs(q,j)-ref_pecs(i,j)).^2));
+            distance(i,q)=distance(i,q)+(wt(j)*((pecs(q,j)-ref_pecs(i,j)).^2));
             q=q+1;
         end
     end
 end
+
+
 
 
 return

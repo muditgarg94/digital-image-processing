@@ -43,6 +43,8 @@ clc;clear;
 
 % In our case, match3 is the image whose objects are to be matched.
 % Hence, referenced image is match1
-distance=dist_calculation(fn2,fn1,[1.505,2,1,2]);
+wt= [1,1,1,1,1,1,1,1,1,0,1,0];  
+distance=dist_calculation(fn2,fn1,wt);
+
 
 
