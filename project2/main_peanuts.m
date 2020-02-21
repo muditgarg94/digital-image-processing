@@ -22,7 +22,7 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20c/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clc;clear;
+clc; clear;
 
 
 %fill labels 2,4,5,7,8,10
@@ -32,5 +32,5 @@ clc;clear;
 [sd2,fn2]=granular_analysis('shadow1rotated.gif',false,[1,4,5,7,9]);
 
 
-
-distance=dist_calculation(fn1,fn2,1);
+% In this case, taking shadow1 as referenced image
+distance=dist_calculation(fn2,fn1,[0.022,0.037,0.09,0.62])

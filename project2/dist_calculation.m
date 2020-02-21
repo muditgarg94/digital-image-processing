@@ -19,9 +19,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function distance=dist_calculation(fn, frn,wt)
+function distance=dist_calculation(pecs, ref_pecs,wt)
 
-[m,n]=size(fn);
+[m,n]=size(ref_pecs);
 distance=zeros(m,m);
 
 
@@ -29,11 +29,11 @@ for i=1:m
     for j=1:n
         q=1;
         while q<=4
-            distance(i,q)=distance(i,q)+((fn(i,j)-frn(q,j)).^2);
+            distance(i,q)=distance(i,q)+(wt(q)*((pecs(q,j)-ref_pecs(i,j)).^2));
             q=q+1;
         end
     end
 end
 
-distance=distance.*wt;
+
 return

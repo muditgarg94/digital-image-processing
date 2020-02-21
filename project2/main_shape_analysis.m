@@ -32,6 +32,9 @@ clc;clear;
 
 % plot pecstrum fn1
 
-distance=dist_calculation(fn1,fn2,1);
+
+% In our case, match3 is the image whose objects are to be matched.
+% Hence, referenced image is match1
+distance=dist_calculation(fn2,fn1,[1.505,2,1,2]);
 
 
