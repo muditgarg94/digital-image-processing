@@ -37,6 +37,9 @@ disp(sd1);
 figure, 
 h = plot(sd1(1,:),'.');
 set(h,'MarkerSize',24)
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of clover in match1.gif')
 figure, plot(sd1(1,:));
 xlabel('r');
 ylabel('U(r)');
@@ -45,6 +48,9 @@ title('size distribution of clover in match1.gif')
 figure, 
 h = plot(sd1(2,:),'.');
 set(h,'MarkerSize',24)
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of clover in match1.gif')
 figure, plot(sd1(2,:));
 xlabel('r');
 ylabel('U(r)');
@@ -53,6 +59,9 @@ title('size distribution of steer in match1.gif')
 figure, 
 h = plot(sd1(3,:),'.');
 set(h,'MarkerSize',24)
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of clover in match1.gif')
 figure, plot(sd1(3,:));
 xlabel('r');
 ylabel('U(r)');
@@ -61,6 +70,9 @@ title('size distribution of airplane in match1.gif')
 figure, 
 h = plot(sd1(4,:),'.');
 set(h,'MarkerSize',24)
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of clover in match1.gif')
 figure, plot(sd1(4,:));
 xlabel('r');
 ylabel('U(r)');
