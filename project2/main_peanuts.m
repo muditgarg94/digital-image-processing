@@ -1,11 +1,10 @@
 %%%%%%%%%%%%% main_peanuts.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
+%       This file matches the 4 solid objects from "Peanuts" comic strip to
+%       complementary image "shadow1rotated" using the min distance.
 %
 % Input Variables:
 %       img     array of images
-%       bear    bear image
-%       penn    penn256 image
 %      
 % Returned Results:
 %       y       binary image
@@ -13,14 +12,12 @@
 % Processing Flow:
 %       1.  Read images "bear.gif" and "penn256.gif".
 %       2.  Create the structuring element B, both background and
-%           foreground.
-%       3.  Call skeltonization function for both images individually to
-%           perfor homotopic skeletonization.
 %
-% The following functions are called:
+% The following functions are called:  granular_analysis
+%                                      dist_calculation
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        02/20c/2020
+%  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc; clear;
 

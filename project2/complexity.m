@@ -10,9 +10,9 @@
 %       entropy     the average uncertainity or entropy
 %
 % Processing Flow:
-%       1.  	Q
+%       1.  	 Calculate and return  entropy as per Maragos-Schafer, eq.(40). 
 %
-% The following functions are called: pectrum
+% The following functions are called: None
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020

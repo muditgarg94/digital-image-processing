@@ -3,21 +3,22 @@
 %       Calculate the distance between two pecstrums
 %
 % Input Variables:
-%       size_dis     
-%       total_area    
+%       fn    
+%       frn
+%       wt      Weight
 %      
 % Returned Results:
 %       distance 
 %
 % Processing Flow:
-%       1.  
+%       1.  Run a  nested loop calculate the distance d of object given by eqn (6.11.1) from 
+%           PitasCh6.
 %
 % The following functions are called: None
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 function distance=dist_calculation(pecs, ref_pecs,wt)
 
