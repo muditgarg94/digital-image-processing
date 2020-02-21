@@ -112,7 +112,8 @@ disp(cmplx1);
 
 % In our case, match3 is the image whose objects are to be matched.
 % Hence, referenced image is match1
-wt= [1,1,1,1,1,1,1,1,1,0,1,0];
+%wt= [1,1,1,1,1,1,1,1,0,0,0,0];
+wt=[1,1,0.8,0.7,0.6,0.5,0.4,0.3,0,0,0,0]; 
 distance=dist_calculation(fn2,fn1,wt);
 disp('distance between objects is');
 disp(distance);

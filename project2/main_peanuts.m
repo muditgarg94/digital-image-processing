@@ -21,7 +21,7 @@
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- clear;
+clc; clear;
 
 %fill labels 2,4,5,7,8,10
 [sd1,fn1] = granular_analysis('shadow1.gif',false,[2,4,5,7,8,10]); 
@@ -31,9 +31,7 @@
 
 
 % In this case, taking shadow1 as referenced image
-
-%wt=[0.0262 0.0220 0.0377 0.0502 0.1444 0.3431 0 0.3556 0 0 0 0];
-wt=[0.25,1,0.0001,0.7,0.1,0,0,0.023,0,0,0,0];  
+wt=[1,1,0.8,0.7,0.1,0,0,0,0,0,0,0];  
 distance=dist_calculation(fn2,fn1,wt);
 
 disp(distance);

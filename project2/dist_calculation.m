@@ -3,9 +3,9 @@
 %       Calculate the distance between two pecstrums
 %
 % Input Variables:
-%       fn    
-%       frn
-%       wt      Weight
+%       fn     pectsrum of test image
+%       frn    pecstrum of referenced image
+%       wt     Weight vector
 %      
 % Returned Results:
 %       distance 
