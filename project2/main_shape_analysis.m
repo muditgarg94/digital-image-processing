@@ -1,19 +1,19 @@
 %%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Purpose:  
+% Purpose:
 %       Given image "match1", perform object extraction using suitable
 %       structuring element and calculate the size distribution U(n), pectrum f(n),
 %       and complexity H(X|B) of each object. Also, based on the pecstral
 %       value, determine the distance as per eqn.(6.11.10) PitasCh6 to
 %       match the objects in "match1" to objects in "match3".
-%       
+%
 % Input Variables:
 %       img     image "match1"
-%      
+%
 % Returned Results:
 %       distance      distance obtained from eqn.(6.11.10) PitasCh6
 %
 % Processing Flow:
-%       1.  Calculate the pecstral value by calling granular_analysis
+%       1.  Calculate the size distribution, pecstrum and shape complexity of the images
 %           function.
 %       2.  Determine the distance as per eqn.(6.11.10) PitasCh6 by calling
 %           dist_calculation and identify the matching objects.
@@ -27,26 +27,71 @@
 clc;clear;
 
 [sd1,fn1,cmplx1]=granular_analysis('match1.gif',true);
-    H = plot(sd1,'b');
-    xlabel('r');
-    ylabel('U(r)');
-    % figure, stairs(H)    
+
+
+%displaying size distribution
+disp('size distribution of all the objects in match1.gif');
+disp(sd1);
+
+%plotting size distribution
+figure, plot(sd1(1,:));
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of clover in match1.gif')
+
+figure, plot(sd1(2,:));
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of steer in match1.gif')
+
+figure, plot(sd1(3,:));
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of airplane in match1.gif')
+
+figure, plot(sd1(4,:));
+xlabel('r');
+ylabel('U(r)');
+title('size distribution of spade in match1.gif')
+
+
+%displaying pecstrum
+disp('pecstrum of all objects of match1.gif')
+disp(fn1);
+
+% plot pecstrum fn1
+figure, plot(fn1(1,:));
+xlabel('r');
+ylabel('f(r)');
+title('Pecstrum of colver in image match1.gif');
+
+figure, plot(fn1(2,:));
+xlabel('r');
+ylabel('f(r)');
+title('Pecstrum of steer in image match1.gif');
+
+figure, plot(fn1(3,:));
+xlabel('r');
+ylabel('f(r)');
+title('Pecstrum of airplane in image match1.gif');
+
+figure, plot(fn1(4,:));
+xlabel('r');
+ylabel('f(r)');
+title('Pecstrum of spade in image match1.gif');
+
+%shape complexity
+disp('shape complexity of objects of match1.gif');
+disp(cmplx1);
 
 [sd2,fn2,cmplx2]=granular_analysis('match3.gif',true);
 
-% plot size distribution sd1 
-
-% sdPlot = plot(sd1);
-% xlabel('r');
-% ylabel('U(r)');
-% title('Size Distribution');
-% plot pecstrum fn1
-
-
 % In our case, match3 is the image whose objects are to be matched.
 % Hence, referenced image is match1
-wt= [1,1,1,1,1,1,1,1,1,0,1,0];  
+wt= [1,1,1,1,1,1,1,1,1,0,1,0];
 distance=dist_calculation(fn2,fn1,wt);
+disp('distance between objects is');
+disp(distance);
 
 
 
