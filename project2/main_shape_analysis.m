@@ -32,6 +32,9 @@ clc;clear;
 %displaying size distribution
 disp('size distribution of all the objects in match1.gif');
 disp(sd1);
+%figure, 
+%h = plot(sd1(1,:),'.');
+%set(h,'MarkerSize',24)
 
 %plotting size distribution
 figure, plot(sd1(1,:));
@@ -61,6 +64,7 @@ disp(fn1);
 
 % plot pecstrum fn1
 figure, plot(fn1(1,:));
+%figure, stem(fn1(1,:));
 xlabel('r');
 ylabel('f(r)');
 title('Pecstrum of colver in image match1.gif');

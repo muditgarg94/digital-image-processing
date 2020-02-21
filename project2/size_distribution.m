@@ -30,7 +30,14 @@ for radius = 1 : 12
     opened_img = open_op(img,rB);
     area = calculate_area(opened_img, mbr_dim);
     sdis(radius) = area;
+    %X = sprintf('Area %d rad %d',area,radius);
+    %disp(X)
+   % plot(area)
+   % xlabel('r')
+   % ylabel('U(r)')
 end
+
+
 
 %disp(sdis);
 return

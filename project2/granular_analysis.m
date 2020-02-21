@@ -20,7 +20,8 @@
 %       4.  Call functions complexity to determine the shape complexity of
 %           the objects.
 %
-% The following functions are called:   size_distribution
+% The following functions are called:   mbr
+%                                       size_distribution
 %                                       calculate_area
 %                                       pecstrum
 %                                       complexity

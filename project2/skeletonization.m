@@ -4,7 +4,7 @@
 %
 % Input Variables:
 %       image   Inputs an image 
-%       b_b     Structuring element B - background
+%       b_b      Structuring element B - background
 %       b_f      Structuring element B - foreground
 %      
 % Returned Results:
@@ -14,7 +14,7 @@
 %       1.  
 %
 %
-% The following functions are called:
+% The following functions are called: thinning
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/16/2020
