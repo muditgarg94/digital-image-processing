@@ -25,11 +25,19 @@
 clc;clear;
 
 [sd1,fn1,cmplx1]=granular_analysis('match1.gif',true);
-    
+    H = plot(sd1,'b');
+    xlabel('r');
+    ylabel('U(r)');
+    % figure, stairs(H)    
+
 [sd2,fn2,cmplx2]=granular_analysis('match3.gif',true);
 
 % plot size distribution sd1 
 
+% sdPlot = plot(sd1);
+% xlabel('r');
+% ylabel('U(r)');
+% title('Size Distribution');
 % plot pecstrum fn1
 
 distance=dist_calculation(fn1,fn2,1);

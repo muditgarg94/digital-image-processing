@@ -1,26 +1,33 @@
 %%%%%%%%%%%%% granular_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
-%
+%      Calculate the size distribution U(n), pecstrum f(n), and complexity H(X|B) of
+%      each object. 
 % Input Variables:
-%       img     array of images
+%       img                      array of images
+%       cmplx                    true value
+%       labels_to_be_filled      labels
 %
 % Returned Results:
-%       un              binary image
-%       fn              binary image
-%       shp_complex     binary image
+%       un              The size distribution
+%       fn              Pecstrum function
+%       shp_complex     Shape complexity
 %
 % Processing Flow:
-%       1.  Read images "bear.gif" and "penn256.gif".
-
+%       1.  Identify the minimum bounding rectangle for the objects.
+%       2.  Call functions size_distribution and calculate_area to compute
+%           size distribution.
+%       3.  Call function pecstrum to determine the pecstrum value.
+%       4.  Call functions complexity to determine the shape complexity of
+%           the objects.
 %
-% The following functions are called:
+% The following functions are called:   size_distribution
+%                                       calculate_area
+%                                       pecstrum
+%                                       complexity
 %      
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/20/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 function[un,fn,shp_complex] = granular_analysis(img,cmplx,labels_to_be_filled)
 
@@ -59,7 +66,7 @@ end
 un = zeros(4, 12);
 mx = zeros(4, 1);
 for i = 1 : size(obj_img, 3)
-    un(i, :) = size_distribution(obj_img(:,:,i), bounds(i,:));
+    un(i, :) = size_distribution(obj_img(:,:,i), bounds(i,:)); 
     mx(i) = calculate_area(obj_img(:,:,i), bounds(i,:));
 end
 
