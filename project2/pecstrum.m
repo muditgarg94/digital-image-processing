@@ -1,16 +1,16 @@
 %%%%%%%%%%%%% pectrum.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Calculate pectrum for the given image
+%       Calculate pectrum for the given image.
 %
 % Input Variables:
-%       size_dis     
-%       total_area    
+%       size_dis      size of dis
+%       total_area    total area obtained
 %      
 % Returned Results:
-%       pecs 
+%       pecs        pecstral value for the image
 %
 % Processing Flow:
-%       1.  
+%       1.  Run a nested for loop to determine the pecstral value.
 %
 % The following functions are called: None
 %      

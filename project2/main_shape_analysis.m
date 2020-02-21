@@ -1,24 +1,26 @@
 %%%%%%%%%%%%% main_shape_analysis.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
-%       Perform the homotopic skeletonization on penn256 and bear images
-%
+%       Given image "match1", perform object extraction using suitable
+%       structuring element and calculate the size distribution U(n), pectrum f(n),
+%       and complexity H(X|B) of each object. Also, based on the pecstral
+%       value, determine the distance as per eqn.(6.11.10) PitasCh6 to
+%       match the objects in "match1" to objects in "match3".
+%       
 % Input Variables:
-%       img     array of images
-%       bear    bear image
-%       penn    penn256 image
+%       img     image "match1"
 %      
 % Returned Results:
-%       y       binary image
+%       distance      distance obtained from eqn.(6.11.10) PitasCh6
 %
 % Processing Flow:
-%       1.  Read images "bear.gif" and "penn256.gif".
-%       2.  Create the structuring element B, both background and
-%           foreground.
-%       3.  Call skeltonization function for both images individually to
-%           perfor homotopic skeletonization.
+%       1.  Calculate the pecstral value by calling granular_analysis
+%           function.
+%       2.  Determine the distance as per eqn.(6.11.10) PitasCh6 by calling
+%           dist_calculation and identify the matching objects.
 %
-% The following functions are called:
-%      
+% The following functions are called:  granular_analysis
+%                                      dist_calculation
+%
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        02/19/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
