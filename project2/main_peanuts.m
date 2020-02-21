@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_peanuts.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%% main_peanuts.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:  
 %       This file matches the 4 solid objects from "Peanuts" comic strip to
 %       complementary image "shadow1rotated" using the min distance.

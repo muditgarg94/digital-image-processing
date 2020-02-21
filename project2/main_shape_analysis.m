@@ -32,26 +32,35 @@ clc;clear;
 %displaying size distribution
 disp('size distribution of all the objects in match1.gif');
 disp(sd1);
-%figure, 
-%h = plot(sd1(1,:),'.');
-%set(h,'MarkerSize',24)
 
 %plotting size distribution
+figure, 
+h = plot(sd1(1,:),'.');
+set(h,'MarkerSize',24)
 figure, plot(sd1(1,:));
 xlabel('r');
 ylabel('U(r)');
 title('size distribution of clover in match1.gif')
 
+figure, 
+h = plot(sd1(2,:),'.');
+set(h,'MarkerSize',24)
 figure, plot(sd1(2,:));
 xlabel('r');
 ylabel('U(r)');
 title('size distribution of steer in match1.gif')
 
+figure, 
+h = plot(sd1(3,:),'.');
+set(h,'MarkerSize',24)
 figure, plot(sd1(3,:));
 xlabel('r');
 ylabel('U(r)');
 title('size distribution of airplane in match1.gif')
 
+figure, 
+h = plot(sd1(4,:),'.');
+set(h,'MarkerSize',24)
 figure, plot(sd1(4,:));
 xlabel('r');
 ylabel('U(r)');
@@ -63,23 +72,22 @@ disp('pecstrum of all objects of match1.gif')
 disp(fn1);
 
 % plot pecstrum fn1
-figure, plot(fn1(1,:));
-%figure, stem(fn1(1,:));
+figure, stem(fn1(1,:));
 xlabel('r');
 ylabel('f(r)');
 title('Pecstrum of colver in image match1.gif');
 
-figure, plot(fn1(2,:));
+figure, stem(fn1(2,:));
 xlabel('r');
 ylabel('f(r)');
 title('Pecstrum of steer in image match1.gif');
 
-figure, plot(fn1(3,:));
+figure, stem(fn1(3,:));
 xlabel('r');
 ylabel('f(r)');
 title('Pecstrum of airplane in image match1.gif');
 
-figure, plot(fn1(4,:));
+figure, stem(fn1(4,:));
 xlabel('r');
 ylabel('f(r)');
 title('Pecstrum of spade in image match1.gif');
