@@ -59,9 +59,9 @@ end
 
 %% Applying homotopic skeletonization to images "bear.gif" and "penn256.gif"
 
-bear_skeleton = skeletonization(bear, bf, bb);
+bear_skeleton = skeletonization(bear, bf, bb,'bear');
 bear_skeleton=bear_skeleton==1;
-penn_skeleton = skeletonization(penn, bf, bb);
+penn_skeleton = skeletonization(penn, bf, bb,'penn');
 penn_skeleton= penn_skeleton==1;
 
 
@@ -77,13 +77,16 @@ penn_skeleton= penn_skeleton==1;
 %printing input and output
 % figure, imshow(bear)
 % title('Bear image - original')
- figure, imshow(bear_skeleton);
- title('Bear image - after homotopic skeletonization');
+ %figure, imshow(bear_skeleton);
+ %title('Bear image - after homotopic skeletonization');
  imwrite(bear_skeleton, 'bear_skeleton.gif');
 % figure, imshow(penn)
 % title('PennState image - original')
- figure, imshow(penn_skeleton);
- title('PennState image - after homotopic skeletonization');
+ %figure, imshow(penn_skeleton);
+% title('PennState image - after homotopic skeletonization');
  imwrite(penn_skeleton, 'penn_skeleton.gif');
+ 
+ figure, imshow(imfuse(bear, bear_skeleton));
+ figure, imshow(imfuse(penn,penn_skeleton));
 
 
