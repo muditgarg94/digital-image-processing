@@ -34,97 +34,96 @@ disp('size distribution of all the objects in match1.gif');
 disp(sd1);
 
 %plotting size distribution
-figure();
-hold on;
-
-%plot(1000,linspace(0,1000,1000),'linewidth',4,'color','r');
-for i=1:size(sd1,2)
-    line([i-1,i],[sd1(1,i),sd1(1,i)], 'Color', 'red');
-    plot(i-1,sd1(1,i),'o', 'Color', 'b');
-end
-h = plot(sd1(1,:),'.');
-set(h,'MarkerSize',24)
-xlabel('r');
-ylabel('U(r)');
-title('size distribution of clover in match1.gif');
-hold off;
-
-figure();
-hold on;
-for i=1:size(sd1,2)
-    line([i-1,i],[sd1(2,i),sd1(2,i)], 'Color', 'red');
-    plot(i-1,sd1(2,i),'o', 'Color', 'b');
-end
-h = plot(sd1(2,:),'.');
-set(h,'MarkerSize',24)
-xlabel('r');
-ylabel('U(r)');
-title('size distribution of steer in match1.gif');
-hold off;
-
-figure();
-hold on;
-for i=1:size(sd1,2)
-    line([i-1,i],[sd1(3,i),sd1(3,i)], 'Color', 'red');
-    plot(i-1,sd1(3,i),'o', 'Color', 'b');
-end
-h = plot(sd1(3,:),'.');
-set(h,'MarkerSize',24)
-xlabel('r');
-ylabel('U(r)');
-title('size distribution of airplane in match1.gif');
-hold off;
-
-figure();
-hold on;
-for i=1:size(sd1,2)
-    line([i-1,i],[sd1(4,i),sd1(4,i)], 'Color', 'red');
-    plot(i-1,sd1(4,i),'o', 'Color', 'b');
-end
-h = plot(sd1(4,:),'.');
-set(h,'MarkerSize',24)
-xlabel('r');
-ylabel('U(r)');
-title('size distribution of spade in match1.gif');
-hold off;
-
-
-
-% %displaying pecstrum
-disp('pecstrum of all objects of match1.gif')
-disp(fn1);
-
-% % plot pecstrum fn1
-figure, stem(fn1(1,:));
-xlabel('r');
-ylabel('f(r)');
-title('Pecstrum of colver in image match1.gif');
-
-figure, stem(fn1(2,:));
-xlabel('r');
-ylabel('f(r)');
-title('Pecstrum of steer in image match1.gif');
-
-figure, stem(fn1(3,:));
-xlabel('r');
-ylabel('f(r)');
-title('Pecstrum of airplane in image match1.gif');
-
-figure, stem(fn1(4,:));
-xlabel('r');
-ylabel('f(r)');
-title('Pecstrum of spade in image match1.gif');
-
-%shape complexity
-disp('shape complexity of objects of match1.gif');
-disp(cmplx1);
+% figure();
+% hold on;
+% 
+% %plot(1000,linspace(0,1000,1000),'linewidth',4,'color','r');
+% for i=1:size(sd1,2)
+%     line([i-1,i],[sd1(1,i),sd1(1,i)], 'Color', 'red');
+%     plot(i-1,sd1(1,i),'o', 'Color', 'b');
+% end
+% h = plot(sd1(1,:),'.');
+% set(h,'MarkerSize',24)
+% xlabel('r');
+% ylabel('U(r)');
+% title('size distribution of clover in match1.gif');
+% hold off;
+% 
+% figure();
+% hold on;
+% for i=1:size(sd1,2)
+%     line([i-1,i],[sd1(2,i),sd1(2,i)], 'Color', 'red');
+%     plot(i-1,sd1(2,i),'o', 'Color', 'b');
+% end
+% h = plot(sd1(2,:),'.');
+% set(h,'MarkerSize',24)
+% xlabel('r');
+% ylabel('U(r)');
+% title('size distribution of steer in match1.gif');
+% hold off;
+% 
+% figure();
+% hold on;
+% for i=1:size(sd1,2)
+%     line([i-1,i],[sd1(3,i),sd1(3,i)], 'Color', 'red');
+%     plot(i-1,sd1(3,i),'o', 'Color', 'b');
+% end
+% h = plot(sd1(3,:),'.');
+% set(h,'MarkerSize',24)
+% xlabel('r');
+% ylabel('U(r)');
+% title('size distribution of airplane in match1.gif');
+% hold off;
+% 
+% figure();
+% hold on;
+% for i=1:size(sd1,2)
+%     line([i-1,i],[sd1(4,i),sd1(4,i)], 'Color', 'red');
+%     plot(i-1,sd1(4,i),'o', 'Color', 'b');
+% end
+% h = plot(sd1(4,:),'.');
+% set(h,'MarkerSize',24)
+% xlabel('r');
+% ylabel('U(r)');
+% title('size distribution of spade in match1.gif');
+% hold off;
+% 
+% 
+% 
+% % %displaying pecstrum
+% disp('pecstrum of all objects of match1.gif')
+% disp(fn1);
+% 
+% % % plot pecstrum fn1
+% figure, stem(fn1(1,:));
+% xlabel('r');
+% ylabel('f(r)');
+% title('Pecstrum of colver in image match1.gif');
+% 
+% figure, stem(fn1(2,:));
+% xlabel('r');
+% ylabel('f(r)');
+% title('Pecstrum of steer in image match1.gif');
+% 
+% figure, stem(fn1(3,:));
+% xlabel('r');
+% ylabel('f(r)');
+% title('Pecstrum of airplane in image match1.gif');
+% 
+% figure, stem(fn1(4,:));
+% xlabel('r');
+% ylabel('f(r)');
+% title('Pecstrum of spade in image match1.gif');
+% 
+% %shape complexity
+% disp('shape complexity of objects of match1.gif');
+% disp(cmplx1);
 
 [sd2,fn2,cmplx2]=granular_analysis('match3.gif',true);
 
 % In our case, match3 is the image whose objects are to be matched.
-% Hence, referenced image is match1
-%wt= [1,1,1,1,1,1,1,1,0,0,0,0];
-wt=[1,1,0.8,0.7,0.6,0.5,0.4,0.3,0,0,0,0];
+% Hence, referenced image is match%
+wt=[1 1 1 1 0 0 0 0 0 0 0 0];  
 distance=dist_calculation(fn2,fn1,wt);
 disp('distance between objects is');
 disp(distance);
