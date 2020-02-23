@@ -18,3 +18,4 @@ The task of project 1 is to find the smallest disk and largest disk in the Rando
 * In the end, we are able to find the smallest disks and largest disks only, using different sized structuring elements.
 
 **Details of Project 2:**
+The task fo this project was to find a homotopic skeleton of the images and find the nearest matching object of an image in another image using pecstral analysis.
