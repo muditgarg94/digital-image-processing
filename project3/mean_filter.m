@@ -1,25 +1,26 @@
 %%%%%%%%%%%%% mean_filter.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       Given image "match1", perform object extraction using suitable
-%       structuring element and calculate the size distribution U(n), pectrum f(n),
-%       and complexity H(X|B) of each object. Also, based on the pecstral
-%       value, determine the distance as per eqn.(6.11.10) PitasCh6 to
-%       match the objects in "match1" to objects in "match3".
+%       to apply the mean filter on an image using a given mask
 %
 % Input Variables:
-%       img     image "match1"
+%       img     Input Image
+%       mask    Mask Size
 %
 % Returned Results:
-%       distance      distance obtained from eqn.(6.11.10) PitasCh6
+%       filtered_img      Image after applying mean filter on a given image
+%       img
 %
 % Processing Flow:
-%       1.  Calculate the size distribution, pecstrum and shape complexity of the images
-%           function.
-%       2.  Determine the distance as per eqn.(6.11.10) PitasCh6 by calling
-%           dist_calculation and identify the matching objects.
+%       1.  If the mask size is not given, default to 5.
+%       2.  Create a padding around the image.
+%       3.  Slide over the padded image equal to the size of mask.
+%       4.  Calculate the sum using each pixel value in a sliding window.
+%       5.  Once the silding window is iterated completely, divide the sum
+%       with the size of mask.
+%       6. Set the average value as the pixel value of filtered_img.
 %
-% The following functions are called:  granular_analysis
-%                                      dist_calculation
+% The following functions are called:  
+%       padding: Applies the padding of size mask/2 to the given image and returns the padded image. 
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        03/10/2020
