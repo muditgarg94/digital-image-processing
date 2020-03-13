@@ -1,60 +1,70 @@
 %%%%%%%%%%%%% median_filter.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       Given image "match1", perform object extraction using suitable
-%       structuring element and calculate the size distribution U(n), pectrum f(n),
-%       and complexity H(X|B) of each object. Also, based on the pecstral
-%       value, determine the distance as per eqn.(6.11.10) PitasCh6 to
-%       match the objects in "match1" to objects in "match3".
+%       Apply the median filter on a given image and a mask
 %
 % Input Variables:
-%       img     image "match1"
+%       img     input image
+%       mask    mask size
 %
 % Returned Results:
-%       distance      distance obtained from eqn.(6.11.10) PitasCh6
+%       filtered_img      image after applying the median filter on given
+%       image 'img'
 %
 % Processing Flow:
-%       1.  Calculate the size distribution, pecstrum and shape complexity of the images
-%           function.
-%       2.  Determine the distance as per eqn.(6.11.10) PitasCh6 by calling
-%           dist_calculation and identify the matching objects.
+%       
 %
-% The following functions are called:  granular_analysis
-%                                      dist_calculation
+% The following functions are called:  
+%           padding:   Applies the padding of size mask/2 to the given image and returns the padded image. 
+%
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        03/10/2020
+%  Date:        03/13/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function filtered_img = median_filter(img, mask)
 
-img = ones(10:10)
-%if nargin ==1
-mask = 5;
+function filtered_img = median_filter(img, mask)
 
-%end
+if nargin ==1
+    mask = 5;
+end
 
 padded_img = padding(img, mask);
 [a, b] = size(img);
 [m, n] = size(padded_img);
-[p, q] = size(mask);
 filtered_img = zeros(a, b);
 p = floor(mask/2);
-mask = (mask*mask);
-for i = 1 : a
-        for j = 1 : b
-            mIndexArray=double([]);
-            subArray = double(img(i:i+double(p-1),j:j+double(p-1)));
-            subArray = subArray(:)';
-            for k = 1:length(mask)
-                x = mask(k);
-                for l = 1:x
-                     mIndexArray = [mIndexArray,subArray(k)];
-                end
-            end
-            filteredIm(i,j) = double(median(mIndexArray));
-       end
-    end    
+arr = zeros(mask*mask,1);
 
-%return
+
+for i=p+1:m-p
+    for j=p+1:n-p
+        col=1;
+        for new_i=i-p:i+p
+            for new_j=j-p:j+p
+                arr(col)=padded_img(new_i,new_j);
+                col=col+1;
+            end
+        end
+        filtered_img(i-p,j-p)=median(arr);
+    end
+end
+
+% 
+% for i = 1 : a
+%         for j = 1 : b
+%             mIndexArray=double([]);
+%             subArray = double(img(i:i+double(p-1),j:j+double(p-1)));
+%             subArray = subArray(:)';
+%             for k = 1:length(mask)
+%                 x = mask(k);
+%                 for l = 1:x
+%                      mIndexArray = [mIndexArray,subArray(k)];
+%                 end
+%             end
+%             filtered_img(i,j) = double(median(mIndexArray));
+%         end
+% end
+
+return
 
 
 
