@@ -33,15 +33,22 @@ end
 
 padded_img=padding(img,mask);
 [m,n]=size(padded_img);
-filtered_img=zeros(m,n);
+[a,b]=size(img);
+filtered_img=zeros(a,b);
 p=floor(mask/2);
-row=1;
+
+
 for i=p+1:m-p
-    col=1;
     for j=p+1:n-p
-        sum_val=sum_val+padded_img(row,col);
-        col=col+1;
+        sum_val=0;
+        for new_i=i-p:i+p
+            for new_j=j-p:j+p
+                sum_val=sum_val+padded_img(new_i,new_j);
+       
+            end
+        end
+        filtered_img(i-p,j-p)=sum_val/(mask*mask);
+        
     end
-    row=row+1;
 end
 return
