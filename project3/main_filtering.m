@@ -49,6 +49,8 @@ for i=1:length(filters)
             %figure, imshow(img);
             filename=sprintf('%s_5.gif',name{1});
             imwrite(img,filename);
+            filename=sprintf('%s_hist.gif',name{1});
+            histogram(img,filename);
         end
     end
 end
