@@ -33,7 +33,7 @@
 original_img=imread('disk.gif');
 %figure, imshow(original_img);
 
-filters=["mean_filter";"median_filter","alphatrimmed","snn_mean_filter"];
+filters=["mean_filter";"median_filter";"alphatrimmed";"snn_mean_filter"];
 
 for i=1:length(filters)
     name=filters(i);
