@@ -13,11 +13,15 @@
 % Processing Flow:
 %       1.  If the mask size is not given, default to 5.
 %       2.  Create a padding around the image.
-%       3.  Slide over the padded image equal to the size of mask.
-%       4.  Calculate the sum using each pixel value in a sliding window.
-%       5.  Once the silding window is iterated completely, divide the sum
-%       with the size of mask.
-%       6. Set the average value as the pixel value of filtered_img.
+%       3.  Get the window equal to size of mask.
+%       4.  For each window, group together the symmetrical pairs.
+%       5.  Subtract the middle most element of the window with each value
+%       in pair.
+%       6. Select the pixel from each pair that is closed to middle pixel
+%       i.e have the least difference.
+%       7. Take the average of all these pixels.
+%       8. Again take the mean of the averaged value and the original pixel
+%       9. Set this mean value as the filtered image value.
 %
 % The following functions are called:  
 %       padding: Applies the padding of size mask/2 to the given image and returns the padded image. 

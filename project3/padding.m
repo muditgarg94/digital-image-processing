@@ -1,25 +1,25 @@
 %%%%%%%%%%%%% padding.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       Given image "match1", perform object extraction using suitable
-%       structuring element and calculate the size distribution U(n), pectrum f(n),
-%       and complexity H(X|B) of each object. Also, based on the pecstral
-%       value, determine the distance as per eqn.(6.11.10) PitasCh6 to
-%       match the objects in "match1" to objects in "match3".
+%       Pad the image as per the mask size.
 %
 % Input Variables:
-%       img     image "match1"
+%       img     image to be padded.
+%       mask    mask value
 %
 % Returned Results:
-%       distance      distance obtained from eqn.(6.11.10) PitasCh6
+%       padded_img      padded image
 %
 % Processing Flow:
-%       1.  Calculate the size distribution, pecstrum and shape complexity of the images
-%           function.
-%       2.  Determine the distance as per eqn.(6.11.10) PitasCh6 by calling
-%           dist_calculation and identify the matching objects.
+%       1.  Let [m,n] be the original image size
+%       2.  Create a matrix of zeros of size [m+2p,n+2p], where p
+%       =floor(mask/2)
+%       3.  Start from p+1 and fill in with the image values.
+%       4.  In the end, new image will be padded all around by zeros of
+%       size p.
 %
-% The following functions are called:  granular_analysis
-%                                      dist_calculation
+%
+% The following functions are called:  
+%       None
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        03/10/2020
