@@ -11,13 +11,9 @@
 %       img
 %
 % Processing Flow:
-%       1.  If the mask size is not given, default to 5.
-%       2.  Create a padding around the image.
-%       3.  Slide over the padded image equal to the size of mask.
-%       4.  Calculate the sum using each pixel value in a sliding window.
-%       5.  Once the silding window is iterated completely, divide the sum
-%       with the size of mask.
-%       6. Set the average value as the pixel value of filtered_img.
+%       1. Run all the filters on given image.
+%       2. Save the images at 1st and 5th iteration
+%       3. Save the histogram of the final iteration of each filter.
 %
 % The following functions are called:  
 %       mean_filter
@@ -25,6 +21,8 @@
 %       alphatrimmed
 %       sigma_filter
 %       snn_mean_filter
+%       str2func
+%       histogram
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        03/14/2020
@@ -33,7 +31,7 @@
 original_img=imread('disk.gif');
 %figure, imshow(original_img);
 
-filters=["mean_filter";"median_filter";"alphatrimmed";"snn_mean_filter"];
+filters=["mean_filter";"median_filter";"alphatrimmed";"snn_mean_filter";"sigma_filter"];
 
 for i=1:length(filters)
     name=filters(i);
