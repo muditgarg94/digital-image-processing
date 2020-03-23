@@ -22,7 +22,7 @@
 %  Date:        03/22/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function diffused_img=anisotropic_diffusion(img, k,iter)
+function diffused_img=anisotropic_diffusion(img, k,iter,coeff_type)
 
 [m,n]=size(img);
 lambda=0.25;
@@ -53,10 +53,22 @@ for t=1:iter
     south_grad=south-img;
 
     %diffusion coefficients
-    cn=exp(-(north_grad./k).^2);
-    cs=exp(-(south_grad./k).^2);
-    ce=exp(-(east_grad./k).^2);
-    cw=exp(-(west_grad./k).^2);
+    g_north=(north_grad./k).^2;
+    g_east=(east_grad./k).^2;
+    g_south=(south_grad./k).^2;
+    g_west=(west_grad./k).^2;
+    
+    if coeff_type==1
+        cn=exp(-g_north);
+        cs=exp(-g_south);
+        ce=exp(-g_east);
+        cw=exp(-g_west);
+    elseif coeff_type==2
+        cn=1/(1+g_north);
+        cs=1/(1+g_south);
+        ce=1/(1+g_east);
+        cw=1/(1+g_west);
+    end
 
     diffused_img=img+lambda.*(cn.*north_grad+cs.*south_grad+ce.*east_grad+cw.*west_grad);
     for i=1:m
