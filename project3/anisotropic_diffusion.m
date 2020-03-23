@@ -27,30 +27,30 @@ function diffused_img=anisotropic_diffusion(img, k,iter)
 [m,n]=size(img);
 lambda=0.25;
 
-for i=1:iter
-    %north gradient
-    north=zeros(m,n);
-    north(2:end,1:end)=img(1:end-1,1:end);
-    north(1,:)=img(1,:);
-    north_grad=north-img;
-
-    %south gradient
-    south=zeros(m,n);
-    south(1:end-1,1:end)=img(2:end,1:end);
-    south(end,:)=img(end,:);
-    south_grad=south-img;
-
+for t=1:iter
     %east gradient
     east=zeros(m,n);
-    east(:,1:end-1)=img(:,2:end);
-    east(:,end)=img(:,end);
+    east(2:end,1:end)=img(1:end-1,1:end);
+    east(1,:)=img(1,:);
     east_grad=east-img;
 
     %west gradient
     west=zeros(m,n);
-    west(:,2:end)=img(:,1:end-1);
-    west(:,1)=img(:,1);
+    west(1:end-1,1:end)=img(2:end,1:end);
+    west(end,:)=img(end,:);
     west_grad=west-img;
+
+    %north gradient
+    north=zeros(m,n);
+    north(:,1:end-1)=img(:,2:end);
+    north(:,end)=img(:,end);
+    north_grad=north-img;
+
+    %south gradient
+    south=zeros(m,n);
+    south(:,2:end)=img(:,1:end-1);
+    south(:,1)=img(:,1);
+    south_grad=south-img;
 
     %diffusion coefficients
     cn=exp(-(north_grad./k).^2);
@@ -58,8 +58,17 @@ for i=1:iter
     ce=exp(-(east_grad./k).^2);
     cw=exp(-(west_grad./k).^2);
 
-    img=img+lambda.*(cn.*north_grad+cs.*south_grad+ce.*east_grad+cw.*west_grad);
+    diffused_img=img+lambda.*(cn.*north_grad+cs.*south_grad+ce.*east_grad+cw.*west_grad);
+    for i=1:m
+        for j=1:n
+            if(diffused_img(i,j)>255)
+                diffused_img=255;
+            elseif diffused_img(i,j)<0
+                diffused_img(i,j)=0;
+            end
+        end
+    end
+    img=diffused_img;
 end
 
-diffused_img=img;
 return
