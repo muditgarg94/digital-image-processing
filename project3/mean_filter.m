@@ -48,7 +48,7 @@ for i=p+1:m-p
        
             end
         end
-        filtered_img(i-p,j-p)=sum_val/(mask*mask);
+        filtered_img(i-p,j-p)=round(sum_val/(mask*mask));
         
     end
 end

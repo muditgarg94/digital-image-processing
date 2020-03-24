@@ -67,7 +67,7 @@ for i=p+1:m-p
         for k=an+1:len-an
             sum_val=sum_val+arr(k);
         end
-        filtered_img(i-p,j-p)=sum_val/(alpha_len);
+        filtered_img(i-p,j-p)=round(sum_val/(alpha_len));
     end
 end
 return
