@@ -22,7 +22,7 @@ function histogram(img,name)
 
 fh=figure;
 imhist(img);
-saveas(fh,name,'png');
-close(fh);
+%saveas(fh,name,'png');
+%close(fh);
 
 end
