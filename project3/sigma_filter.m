@@ -46,6 +46,7 @@ padded_img=padding(img,mask);
 [a,b]=size(img);
 filtered_img=zeros(a,b);
 p=floor(mask/2);
+sigma=2*sigma;
 
 for i=p+1:m-p
     for j=p+1:n-p
