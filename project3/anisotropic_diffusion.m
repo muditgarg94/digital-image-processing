@@ -22,7 +22,7 @@
 %  Date:        03/22/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function diffused_img=anisotropic_diffusion(img, k,iter,coeff_type)
+function diffused_img=anisotropic_diffusion(img, k,iter,coeff_type,name)
 
 [m,n]=size(img);
 lambda=0.25;
@@ -81,6 +81,10 @@ for t=1:iter
         end
     end
     img=diffused_img;
+    if(t==5||t==20||t==100)
+        filename=sprintf('%s_%d_anisotropic.gif',name{1},t);
+        imwrite(img,filename);
+    end
 end
 
 return

@@ -23,6 +23,7 @@
 %       snn_mean_filter
 %       str2func
 %       histogram
+%       meanandstd
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
 %  Date:        03/14/2020
@@ -44,11 +45,15 @@ for i=1:length(filters)
             filename=sprintf('%s_1.gif',name{1});
             imwrite(img,filename);
         elseif(j==5)
+            [mu,std]=meanandstd(img);
+            disp('mean of larger disk after applying '+name+' = '+mu);
+            disp('std of larger disk after applying '+name+' = '+std);
             %figure, imshow(img);
             filename=sprintf('%s_5.gif',name{1});
             imwrite(img,filename);
             filename=sprintf('%s_hist.gif',name{1});
             histogram(img,filename);
+            
         end
     end
 end
