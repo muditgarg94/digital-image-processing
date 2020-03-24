@@ -42,7 +42,7 @@ padded_img=padding(img,mask);
 filtered_img=zeros(a,b);
 p=floor(mask/2);
 
-nn=zeros((mask*mask)-1,2);
+nn=zeros(((mask*mask)-1)/2,2);
 for i=p+1:m-p
     for j=p+1:n-p
         window=padded_img(i-p:i+p,j-p:j+p);
@@ -54,23 +54,30 @@ for i=p+1:m-p
                     break;
                 else
                     nn(row,1)=window(new_i,new_j);
-                    nn(row,2)=window(end-new_i+1,end-new_j+1);
+                    nn(row,2)=window(mask-new_i+1,mask-new_j+1);
+                    %disp(new_i);
+                    %disp(new_j);
+                    %disp(mask-new_i+1);
+                    %disp(mask-new_j+1);
                     row=row+1;
                 end
             end
         end
+        %disp(nn);
         nn_diff=nn-padded_img(i,j);
+        %disp(nn_diff)
         sum_val=0;
         for k=1:length(nn)
-            if nn_diff(k,1)<=nn_diff(k,2)
+            if abs(nn_diff(k,1))<=abs(nn_diff(k,2))
                 val=nn(k,1);
             else
                 val=nn(k,2);
             end
             sum_val=sum_val+val;
         end
+        %avg=(sum_val+padded_img(i,j))/(length(nn)+1);
         avg=sum_val/length(nn);
-        filtered_img(i-p,j-p)=(avg+padded_img(i,j))/2;
+        filtered_img(i-p,j-p)=round((avg+padded_img(i,j))/2);
         
     end
 end
