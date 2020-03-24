@@ -75,9 +75,9 @@ for i=p+1:m-p
             end
             sum_val=sum_val+val;
         end
-        %avg=(sum_val+padded_img(i,j))/(length(nn)+1);
-        avg=sum_val/length(nn);
-        filtered_img(i-p,j-p)=round((avg+padded_img(i,j))/2);
+        avg=(sum_val+padded_img(i,j))/(length(nn)+1);
+        %avg=sum_val/length(nn);
+        filtered_img(i-p,j-p)=round(avg);
         
     end
 end
