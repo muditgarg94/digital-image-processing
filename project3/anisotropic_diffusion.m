@@ -3,17 +3,21 @@
 %       Performs Perona-Malik anisotropic diffusion
 %
 % Input Variables:
-%       img     Input Image
+%       img_name     Input Image name
 %       k       k value
+%       iter
+%       coeff_type
+%       name   name of image
 %
 % Returned Results:
 %       diffused_img      Image after applying anisotropic diffusion on
 %       given image
 %
 % Processing Flow:
-%       1. Run all the filters on given image.
-%       2. Save the images at 1st and 5th iteration
-%       3. Save the histogram of the final iteration of each filter.
+%       1. Calculate the north, south, east west gradients as per the
+%       Perona Malik.
+%       2. Calculate conduction coefficients based on coeff_type. If it is
+%       1, it si exponentaial,else its inverse quadratic
 %
 % The following functions are called:
 %
@@ -22,15 +26,18 @@
 %  Date:        03/22/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function diffused_img=anisotropic_diffusion(img, k,iter,coeff_type,name)
-
+function diffused_img=anisotropic_diffusion(img_name, k,iter,coeff_type)
+name_ext=split(img_name,'.');
+name=name_ext(1);
+img=imread(img_name);
+img=double(img);
 [m,n]=size(img);
 lambda=0.25;
 
 for t=1:iter
     %east gradient
     east=zeros(m,n);
-    east(2:end,1:end)=img(1:end-1,1:end);
+    east(2:end,:)=img(1:end-1,:);
     east(1,:)=img(1,:);
     east_grad=east-img;
 
@@ -64,12 +71,12 @@ for t=1:iter
         ce=exp(-g_east);
         cw=exp(-g_west);
     elseif coeff_type==2
-        cn=1/(1+g_north);
-        cs=1/(1+g_south);
-        ce=1/(1+g_east);
-        cw=1/(1+g_west);
+        cn=1./(1+g_north);
+        cs=1./(1+g_south);
+        ce=1./(1+g_east);
+        cw=1./(1+g_west);
     end
-
+ 
     diffused_img=img+lambda.*(cn.*north_grad+cs.*south_grad+ce.*east_grad+cw.*west_grad);
     for i=1:m
         for j=1:n
@@ -82,8 +89,9 @@ for t=1:iter
     end
     img=diffused_img;
     if(t==5||t==20||t==100)
-        filename=sprintf('%s_%d_anisotropic.gif',name{1},t);
-        imwrite(img,filename);
+ 
+        filename=sprintf('%s_k%d_%d_anisotropic.gif',name{1},k,t);
+        imwrite(uint8(diffused_img),filename);
     end
 end
 
