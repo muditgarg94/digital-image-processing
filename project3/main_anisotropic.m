@@ -30,21 +30,36 @@
 
 
 %% Exponential conduction coefficent
-anisotropic_diffusion('cwheelnoise.gif',20,100,1);
-anisotropic_diffusion('cwheelnoise.gif',30,100,1);
-anisotropic_diffusion('cwheelnoise.gif',40,100,1);
-anisotropic_diffusion('cwheelnoise.gif',50,100,1);
+%anisotropic_diffusion('cwheelnoise.gif',20,100,1);
+%anisotropic_diffusion('cwheelnoise.gif',30,100,1);
+%anisotropic_diffusion('cwheelnoise.gif',40,100,1);
+%anisotropic_diffusion('cwheelnoise.gif',50,100,1);
 
 %% Inverse Quadratic conduction coefficient
-anisotropic_diffusion('cwheelnoise.gif',6,100,2);
-anisotropic_diffusion('cwheelnoise.gif',7,100,2);
-anisotropic_diffusion('cwheelnoise.gif',8,100,2);
-anisotropic_diffusion('cwheelnoise.gif',9,100,2);
-diff_img=anisotropic_diffusion('cwheelnoise.gif',10,100,2);
+%anisotropic_diffusion('cwheelnoise.gif',6,100,2);
+%anisotropic_diffusion('cwheelnoise.gif',7,100,2);
+%anisotropic_diffusion('cwheelnoise.gif',8,100,2);
+%anisotropic_diffusion('cwheelnoise.gif',9,100,2);
+%diff_img=anisotropic_diffusion('cwheelnoise.gif',10,100,2);
+
 
 %
 % Exponental coefficents did not work well.
 % it worked fine for quadratic coefficients with samller values of K k=9 or k=10
 % gave best answers
 %%
+
+%% cameraman image
+anisotropic_diffusion('cameraman.tif',10,100,1);
+anisotropic_diffusion('cameraman.tif',20,100,1);
+anisotropic_diffusion('cameraman.tif',30,100,1);
+anisotropic_diffusion('cameraman.tif',40,100,1);
+anisotropic_diffusion('cameraman.tif',50,100,1);
+
+anisotropic_diffusion('cameraman.tif',6,100,2);
+anisotropic_diffusion('cameraman.tif',7,100,2);
+anisotropic_diffusion('cameraman.tif',8,100,2);
+anisotropic_diffusion('cameraman.tif',9,100,2);
+anisotropic_diffusion('cameraman.tif',10,100,2);
+
 

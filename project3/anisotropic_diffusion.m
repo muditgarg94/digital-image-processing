@@ -101,8 +101,8 @@ for t=1:iter
             plotname=sprintf('%s_k%d_%d_quad_ploty',name{1},k,t);
         end
         imwrite(uint8(diffused_img),filename);
-        histogram(uint8(diffused_img),histname);
-        ploty128(uint8(diffused_img), plotname);
+        %histogram(uint8(diffused_img),histname);
+        %ploty128(uint8(diffused_img), plotname);
     end
 end
 
