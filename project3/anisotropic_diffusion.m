@@ -20,6 +20,8 @@
 %       1, it si exponentaial,else its inverse quadratic
 %
 % The following functions are called:
+%       histogram
+%       ploty128
 %
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
@@ -89,9 +91,18 @@ for t=1:iter
     end
     img=diffused_img;
     if(t==5||t==20||t==100)
- 
-        filename=sprintf('%s_k%d_%d_anisotropic.gif',name{1},k,t);
+        if(coeff_type==1)
+            filename=sprintf('%s_k%d_%d_exp_anisotropic.gif',name{1},k,t);
+            histname=sprintf('%s_k%d_%d_exp_hist',name{1},k,t);
+            plotname=sprintf('%s_k%d_%d_exp_ploty',name{1},k,t);
+        else
+            filename=sprintf('%s_k%d_%d_quad_anisotropic.gif',name{1},k,t);
+            histname=sprintf('%s_k%d_%d_quad_hist',name{1},k,t);
+            plotname=sprintf('%s_k%d_%d_quad_ploty',name{1},k,t);
+        end
         imwrite(uint8(diffused_img),filename);
+        histogram(uint8(diffused_img),histname);
+        ploty128(uint8(diffused_img), plotname);
     end
 end
 

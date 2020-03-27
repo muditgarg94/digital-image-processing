@@ -30,16 +30,16 @@
 
 
 %% Exponential conduction coefficent
-%anisotropic_diffusion('cwheelnoise.gif',20,100,1);
-%anisotropic_diffusion('cwheelnoise.gif',30,100,1);
-%anisotropic_diffusion('cwheelnoise.gif',40,100,1);
-%anisotropic_diffusion('cwheelnoise.gif',50,100,1);
+anisotropic_diffusion('cwheelnoise.gif',20,100,1);
+anisotropic_diffusion('cwheelnoise.gif',30,100,1);
+anisotropic_diffusion('cwheelnoise.gif',40,100,1);
+anisotropic_diffusion('cwheelnoise.gif',50,100,1);
 
 %% Inverse Quadratic conduction coefficient
-%anisotropic_diffusion('cwheelnoise.gif',6,100,2);
-%anisotropic_diffusion('cwheelnoise.gif',7,100,2);
-%anisotropic_diffusion('cwheelnoise.gif',8,100,2);
-%anisotropic_diffusion('cwheelnoise.gif',9,100,2);
+anisotropic_diffusion('cwheelnoise.gif',6,100,2);
+anisotropic_diffusion('cwheelnoise.gif',7,100,2);
+anisotropic_diffusion('cwheelnoise.gif',8,100,2);
+anisotropic_diffusion('cwheelnoise.gif',9,100,2);
 diff_img=anisotropic_diffusion('cwheelnoise.gif',10,100,2);
 
 %
