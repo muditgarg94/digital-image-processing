@@ -40,18 +40,15 @@ for i=1:length(filters)
     img=original_img;
     for j=1:5
         img=uint8(filter(img));
-        if(j==1)
+        if(j==1|| j==5)
             %figure, imshow(img);
-            filename=sprintf('%s_1.gif',name{1});
-            imwrite(img,filename);
-        elseif(j==5)
             [mu,std]=meanandstd(img);
-            disp('mean of larger disk after applying '+name+' = '+mu);
-            disp('std of larger disk after applying '+name+' = '+std);
+            disp('mean of larger disk at iteration after applying '+name+' = '+mu);
+            disp('std of larger disk at iteration after applying '+name+' = '+std);
             %figure, imshow(img);
-            filename=sprintf('%s_5.gif',name{1});
+            filename=sprintf('%s_%d.gif',name{1},j);
             imwrite(img,filename);
-            filename=sprintf('%s_hist.png',name{1});
+            filename=sprintf('%s_%d_hist.png',name{1},j);
             histogram(img,filename);
             
         end
