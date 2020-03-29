@@ -24,11 +24,12 @@ function output=manual_threshold(img)
 output=zeros(m,n);
 for i=1:m
     for j=1:n
-        if(img(i,j)<=110 && img(i,j)>= 80)
+        %if(img(i,j)<=110 && img(i,j)>= 80)
+        if(img(i,j)<=120 && img(i,j)>= 80)
             output(i,j)=1;
         end
     end
 end
 
-figure, imshow(output);
+%figure, imshow(output);
 return
