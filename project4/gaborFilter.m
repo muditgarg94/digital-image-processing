@@ -1,7 +1,5 @@
-function [m1] = gaborFilter(gamma, lambda, b, theta, phi)
-img = imread(imfile);
-phi = 0;
-sigma = (1 / pi) * sqrt(log(2)/2) * (2^b+1) / (2^b-1) * lambda;
+function [m1] = gaborFilter(img, gamma, lambda, theta, phi, sigma)
+
 s = sigma * gamma;
 
 for x = -fix(sigma) : fix(sigma)
@@ -13,6 +11,6 @@ for x = -fix(sigma) : fix(sigma)
     end
 end
 
-m1 = conv2(img(:,:,1), double(m),'same');
+m1 = conv2(img(:,:,1), double(m),'same')
 
 end
