@@ -1,9 +1,21 @@
 
 
-function [gaussian] = smoothingFilter(sigma)
+function [g_x,g_y] = smoothingFilter(sigma, width)
 
-width = 4*sigma + 1;
-[xx,yy] = meshgrid(-width : width, -width : width);
-gaussian = exp(-1/(2*sigma^2) * (xx.^2 + yy.^2));
+sigma = 24;
+newRange = sigma * width;
+xRange = -newRange : newRange;
+yRange = -newRange : newRange;
+
+U = F * cosd(theta);
+V = F * sind(theta);
+
+for i = 1 : length(xRange)
+    g_x(i) = (exp(-((xRange(i)).^2) / (2*(sigma^2)))) /(2*pi) * (sigma^2);
+end
+
+for j = 1 : length(yRange)
+    g_y(j) = (exp(-((yRange(j)).^2) / (2*(sigma^2)))) / (2*pi) * (sigma^2);
+end
 
 end
