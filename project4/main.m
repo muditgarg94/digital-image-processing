@@ -28,6 +28,7 @@ for i = 1 : numel(imageList2)
   m1 = gaborFilter(I, gamma, lambda, theta, phi, sigma)
   imshow(m1)
   imwrite(m1,sprintf('%d.jpg',i))
+  
 % Apply smoothing Filter
 % smoothImg = smoothingFilter();
 end
