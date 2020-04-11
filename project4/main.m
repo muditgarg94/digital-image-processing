@@ -26,7 +26,7 @@ for i = 1 : numel(imageList2)
   [h_x,h_y] = gaborFilter(F, sigma, theta, width);
 
   %Apply convolution
-  [i1] = convolut(I, h_x, sigma, range);
+  [m1] = convolut(I, h_x, sigma, range);
  
   
   imshow(m1)
