@@ -1,16 +1,31 @@
-function [m1] = gaborFilter(img, gamma, lambda, theta, phi, sigma)
+function [h_x, h_y] = gaborFilter(F, sigma, theta, width)
 
-s = sigma * gamma;
+newRange = sigma * width;
+xRange = -newRange : newRange;
+yRange = -newRange : newRange;
 
-for x = -fix(sigma) : fix(sigma)
-    for y = -fix(s) : fix(s)
-        xp = x * cos(theta) + y * sin(theta);
-        yp = y * cos(theta) - x * sin(theta);
-        m(fix(s)+y+1,fix(sigma)+x+1) = ...
-            exp(-.5*(xp^2+gamma^2*yp^2)/sigma^2) * cos(2*pi*xp/lambda+phi);
-    end
+U = F * cosd(theta);
+V = F * sind(theta);
+
+denominator = (sqrt(2*pi)) * sigma;
+for i = 1 : length(xRange)
+    g_x(i) = (exp(-((x(i)).^2) / (2*(sigma^2)))) / denominator;
 end
 
-m1 = conv2(img(:,:,1), double(m),'same')
+for j = 1 : length(yRange)
+    g_y(j) = (exp(-((y(j)).^2) / (2*(sigma^2)))) / denominator;
+end
+
+h_x = zeros( size(g_x));
+h_y = zeros( size(g_y));
+
+
+for ii = 1 : length(xRange)
+    h_x(ii) = gx(ii) * exp(1ii * 2 * pi * U * x(ii));
+end
+    
+for jj = 1 : length(yRange)
+    h_y(jj) = gy(jj) * exp(1jj * 2 * pi * V * y(jj));
+end
 
 end

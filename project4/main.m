@@ -16,16 +16,19 @@ sigma = 8;
 phi = 0;
 lambda = 1 ./ F;
 gamma = 1;
-
+width = 2;
 
 % Reading the image
 imageList2 = {'texture1.png','texture2.png', 'd4d29.png','d9d77.png'};
 for i = 1 : numel(imageList2)
   I = imread(imageList2{i});
-  %[row, col, x] = size(I);
   imshow(I)
- % Apply Gabor Filter
-  m1 = gaborFilter(I, gamma, lambda, theta, phi, sigma)
+  [h_x,h_y] = gaborFilter(F, sigma, theta, width);
+
+  %Apply convolution
+  [i1] = convolut(I, h_x, sigma, range);
+ 
+  
   imshow(m1)
   imwrite(m1,sprintf('%d.jpg',i))
   
