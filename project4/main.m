@@ -30,5 +30,5 @@ for i = 1 : numel(imageList2)
   imwrite(m1,sprintf('%d.jpg',i))
   
 % Apply smoothing Filter
-% smoothImg = smoothingFilter();
+smoothImg = smoothingFilter(sigma);
 end
