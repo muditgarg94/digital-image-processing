@@ -42,15 +42,16 @@ conv_img=zeros(m,n);
 %disp(length(h))
 %% axis=1 represents row wise
 if( axis==1)
-    for i=index+1: m-index
-        for j=1:n
-            tmp=0;
-            for k=-index:index
-                %disp("hindex="+(index+1+k));
-                tmp=tmp+(img(i+k,j)*h(index+1+k));
-                
-            end
-            conv_img(i,j)=tmp;
+    disp(size(h));
+    for i=index+1: m-(index+1)
+        for j=index+1:n-(index+1)
+            %disp(size(img(i-index:i+index,j)));
+            conv_img(i,j)=sum((img(i, j-index: j+index).*h));
+%             tmp=0;
+%             for k=-index:index
+%                 tmp=tmp+(img(i+k,j)*h(index+1+k));
+%             end
+%             conv_img(i,j)=tmp;
         end
     end
     
@@ -59,13 +60,15 @@ end
 
 if(axis==2)
     
-    for i=1:m
-        for j=index+1:n-index
-            tmp=0;
-            for k=-index:index
-                tmp=tmp+(img(i,j+k)*h(index+1+k));
-            end
-            conv_img(i,j)=tmp;
+    for i=index+1:m-(index+1)
+        for j=index+1:n-(index+1)
+            
+            conv_img(i,j)=sum((img(i-index:i+index,j).*h'));
+%             tmp=0;
+%             for k=-index:index
+%                 tmp=tmp+(img(i,j+k)*h(index+1+k));
+%             end
+%             conv_img(i,j)=tmp;
         end
     end
 end

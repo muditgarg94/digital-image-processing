@@ -61,7 +61,7 @@ gabor_img = gaborFilter(img,F, sigma, theta, width);
 % end
 
 
-figure, imshow(gabor_img);
+%figure, imshow(gabor_img);
 
 %figure, mesh(I), colormap(jet);
 %figure, mesh(gabor_img), colormap(jet);

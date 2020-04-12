@@ -35,23 +35,24 @@
 
 function [gx,gy]=gaussian(sigma, range)
 %here phi=0. Thus gx=gy
-x=-(sigma*range):(sigma*range);
+
 
 %y=-(sigma*range):(sigma*range);
+x=linspace(-(sigma*range),(sigma*range),4*sigma+1);
 
-gx=zeros(size(x));
 %gy=zeros(size(y));
 
 denom = sqrt(2*pi)*sigma;
-
+gx=(exp(-(x.^2)/(2*(sigma^2))))./denom; 
+gy=gx;
 % for i=1:length(x)
 %    gx(i)=(exp(-(x(i).^2)/(2*(sigma.^2))))/denom; 
 % end
 
-for i=1:length(x)
-   gx(i)=(exp(-(i.^2)/(2*(sigma.^2))))/denom; 
-end
-gy=gx;
+% for i=1:length(x)
+%    gx(i)=(exp(-(x(i).^2)/(2*(sigma.^2))))/denom; 
+% end
+% gy=gx;
 % for i=1:length(y)
 %    gy(i)=(exp(-(y(i).^2)/(2*(sigma.^2))))/denom; 
 % end
