@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main_1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main_2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
 %       to apply the alphatrimmed filter on an image using a given mask and
 %       alpha
@@ -35,17 +35,13 @@
 clear;
 clc;
 
-
-imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
-%giftopng(imageList)
-
 % Parameters initialization
-F = 0.059;
-theta = 135;
-sigma = 8;
+F = 0.042;
+theta = 0;
+sigma = 24;
 width = 2;
 
-I = imread('texture1.gif');
+I = imread('texture2.gif');
 img=zeros(size(I));
   
 for i=1:size(I,1)
@@ -70,28 +66,3 @@ figure, imshow(i2);
 
 
 
-% 
-% for index = 1 : numel(imageList)
-%   
-%   
-%   %imshow(I)
-%   
-% 
-%   %Apply convolution
-%   [m1] = convolut(I, h_x, sigma, range);
-%  
-%   % Output image visualization 
-%   imshow(m1)
-%   imwrite(m1,sprintf('%d.jpg',i))
-%   
-%   % Apply smoothing Filter
-%   [g_x, g_y] = smoothingFilter(sigma, width);
-%   
-%   %Apply convolution
-%   [m1] = convolut(I, g_x, sigma, range);
-%  
-%   % Output image visualization 
-%   imshow(m1)
-%   imwrite(m1,sprintf('%d.jpg',i))
-%   
-% end
