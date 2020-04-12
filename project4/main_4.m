@@ -21,12 +21,12 @@ clear;
 clc;
 
 % Parameters initialization
-F = 0.063;
-theta = 60;
-sigma = 36;
+F = 0.6038;
+theta = -50.5;
+sigma = 8;
 range = 2;
 
-I = imread('d9d77.gif');
+I = imread('d4d29.gif');
 %img=ones(size(I));
 img=double(I);
 % for i=1:size(I,1)
