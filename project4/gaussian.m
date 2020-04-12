@@ -41,15 +41,15 @@ y=-(sigma*range):(sigma*range);
 gx=zeros(size(x));
 gy=zeros(size(y));
 
-denom = (sqrt(2*pi)*sig);
+denom = 2*pi*(sigma^2);
 
 for i=1:length(x)
-   gx(i)=exp(-(x(i)^2)/(2*(sig^2))); 
+   gx(i)=exp(-(x(i)^2)/(2*(sigma^2))); 
 end
 gx=gx./denom;
 
 for i=1:length(y)
-   gy(i)=(exp(-(y(i)^2)/(2*(sig^2)))); 
+   gy(i)=(exp(-(y(i)^2)/(2*(sigma^2)))); 
 end
 
 gy=gy./denom;

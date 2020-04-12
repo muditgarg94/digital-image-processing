@@ -42,13 +42,8 @@ imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
 
 % Parameters initialization
 F = 0.059;
-%F = 0:042;
 theta = 135;
-phi = 0;
 sigma = 8;
-%sigma = 24;
-phi = 0;
-lambda = 1 ./ F;
 width = 2;
 
 I = imread('texture1.gif');
@@ -64,7 +59,7 @@ end
   
 final_img = gaborFilter(img,F, sigma, theta, width);
 
-inshow(final_img);
+imshow(final_img);
 
 % 
 % for index = 1 : numel(imageList)
