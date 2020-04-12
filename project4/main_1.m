@@ -50,7 +50,7 @@ for i=1:size(I,1)
         end
     end
 end
-  
+
 gabor_img = gaborFilter(img,F, sigma, theta, width);
 % for i=1:size(gabor_img,1)
 %     for j=1:size(gabor_img,2)

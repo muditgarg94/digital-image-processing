@@ -35,12 +35,21 @@ V=F*sind(theta);
 hx=zeros(length(x));
 hy=zeros(length(y));
 
+% for i=1:length(x)
+%     hx(i)=gx(i)*exp(1i*2*pi*U*x(i));
+% end
+% 
+% for i=1:length(y)
+%     hy(i)=gy(i)*exp(1i*2*pi*V*y(i));
+% end
+
 for i=1:length(x)
-    hx(i)=gx(i)*exp(1i*2*pi*U*x(i));
+    hx(i)=gx(i)*exp(1i*2*pi*U*i);
 end
 
 for i=1:length(y)
-    hy(i)=gy(i)*exp(1i*2*pi*V*y(i));
+    hy(i)=gy(i)*exp(1i*2*pi*V*i);
 end
+
 
 return 
