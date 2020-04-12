@@ -54,7 +54,7 @@ end
   
 gabor_img = gaborFilter(img,F, sigma, theta, width);
 
-figure, imshow(gabor_img);
+%figure, imshow(gabor_img);
 
 %%smoothen the image
 [gx,gy]=gaussian(24,2);
@@ -62,7 +62,7 @@ figure, imshow(gabor_img);
 i1=convolution(gabor_img,gx,1,24,2);
 i2=convolution(i1,gy,2,24,2);
 
-figure, imshow(i2);
+%figure, imshow(i2);
 
 
 
