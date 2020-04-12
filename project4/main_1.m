@@ -1,4 +1,4 @@
-%%%%%%%%%%%%% main.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% main_1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
 %       to apply the alphatrimmed filter on an image using a given mask and
 %       alpha
@@ -37,8 +37,7 @@ clc
 clear all
 
 
-% Converting GIF extension to PNG
-%imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
+imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
 %giftopng(imageList)
 
 % Parameters initialization
@@ -50,31 +49,45 @@ sigma = 8;
 %sigma = 24;
 phi = 0;
 lambda = 1 ./ F;
-gamma = 1;
 width = 2;
 
-% Reading the image
-imageList2 = {'texture1.png','texture2.png', 'd4d29.png','d9d77.png'};
-for i = 1 : numel(imageList2)
-  I = imread(imageList2{i});
-  imshow(I)
-  [h_x, h_y] = gaborFilter(F, sigma, theta, width);
-
-  %Apply convolution
-  [m1] = convolut(I, h_x, sigma, range);
- 
-  % Output image visualization 
-  imshow(m1)
-  imwrite(m1,sprintf('%d.jpg',i))
+I = imread('texture1.gif');
+img=zeros(size(I));
   
-  % Apply smoothing Filter
-  [g_x, g_y] = smoothingFilter(sigma, width);
-  
-  %Apply convolution
-  [m1] = convolut(I, g_x, sigma, range);
- 
-  % Output image visualization 
-  imshow(m1)
-  imwrite(m1,sprintf('%d.jpg',i))
-  
+for i=1:size(I,1)
+    for j=1:size(I,2)
+        if(I(i,j)==1)
+            img(i,j)=255;
+        end
+    end
 end
+  
+final_img = gaborFilter(img,F, sigma, theta, width);
+
+inshow(final_img);
+
+% 
+% for index = 1 : numel(imageList)
+%   
+%   
+%   %imshow(I)
+%   
+% 
+%   %Apply convolution
+%   [m1] = convolut(I, h_x, sigma, range);
+%  
+%   % Output image visualization 
+%   imshow(m1)
+%   imwrite(m1,sprintf('%d.jpg',i))
+%   
+%   % Apply smoothing Filter
+%   [g_x, g_y] = smoothingFilter(sigma, width);
+%   
+%   %Apply convolution
+%   [m1] = convolut(I, g_x, sigma, range);
+%  
+%   % Output image visualization 
+%   imshow(m1)
+%   imwrite(m1,sprintf('%d.jpg',i))
+%   
+% end
