@@ -41,3 +41,33 @@ img=double(I);
 
 gabor_img = gaborFilter(img,F, sigma, theta, range);
 figure, imshow(gabor_img,[])
+
+%%smoothen the image
+[gx,gy]=gaussian(40,range);
+
+i1=convolution(gabor_img,gx,1,40,range);
+i2=convolution(i1,gy,2,40,range);
+
+figure, imshow(i2,[]);
+
+mask=segmentation(i2,img);
+figure, imhist(mask);
+[r,c]=size(mask);
+segmented=zeros(r,c);
+
+for i=1:r
+    for j=1:c
+        %0.81735
+        if(mask(i,j)>0.92754)
+            segmented(i,j)=1;
+        end
+    end
+end
+
+output=segmented.*img;
+
+figure, imshow(output)
+
+fused=imfuse(img,segmented);
+figure, imshow(fused);
+

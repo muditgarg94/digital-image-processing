@@ -70,8 +70,25 @@ i2=convolution(i1,gy,2,24,width);
 
 figure, imshow(i2,[]);
 
-segmented=segmentation(i2,img);
+mask=segmentation(i2,img);
+%figure, imhist(mask);
+[r,c]=size(mask);
+segmented=zeros(r,c);
 
+for i=1:r
+    for j=1:c
+        if(mask(i,j)>0.6)
+            segmented(i,j)=1;
+        end
+    end
+end
+
+output=segmented.*img;
+
+figure, imshow(output)
+
+fused=imfuse(img,segmented);
+figure, imshow(fused);
 % for index = 1 : numel(imageList)
 %   
 %   

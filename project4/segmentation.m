@@ -31,13 +31,17 @@
 %  Date:        04/11/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function output=segmentation(img, original_img)
+function segment=segmentation(img, original_img)
 
 
 max_val=max(max(img));
 min_val=min(min(img));
  diff=max_val-min_val;
-segment=round(((img - min_val)./(diff)));
+segment=((img - min_val)./(diff));
+%figure, imhist(segment);
 
-output=segment.*original_img;
+%fused=imfuse(segment, original_img);
+%figure, imshow(fused);
+
+%output=segment.*original_img;
 return

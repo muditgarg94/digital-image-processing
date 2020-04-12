@@ -64,5 +64,22 @@ i2=convolution(i1,gy,2,24,2);
 
 figure, imshow(i2,[]);
 
-segmented=segmentation(i2,img);
 
+
+mask=segmentation(i2,img);
+[r,c]=size(mask);
+segmented=zeros(r,c);
+
+for i=1:r
+    for j=1:c
+        if(mask(i,j)>0.8)
+            segmented(i,j)=1;
+        end
+    end
+end
+
+output=segmented.*img;
+figure, imshow(output);
+
+fused=imfuse(img,segmented);
+figure, imshow(fused);
