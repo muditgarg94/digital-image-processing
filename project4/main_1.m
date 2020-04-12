@@ -59,16 +59,15 @@ gabor_img = gaborFilter(img,F, sigma, theta, width);
 figure, imshow(gabor_img);
 
 %%smoothen the image
-[gx,gy]=gaussian(24,2);
+[gx,gy]=gaussian(24,width);
 
-i1=convolution(gabor_img,gx,1,24,2);
-i2=convolution(i1,gy,2,24,2);
+i1=convolution(gabor_img,gx,1,24,width);
+i2=convolution(i1,gy,2,24,width);
 
 %figure, imshow(i2);
 
 
 
-% 
 % for index = 1 : numel(imageList)
 %   
 %   
