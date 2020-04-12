@@ -41,7 +41,7 @@ theta = 0;
 sigma = 24;
 width = 2;
 
-I = imread('texture2.gif');
+I = imread('texture1.gif');
 img=zeros(size(I));
   
 for i=1:size(I,1)
@@ -54,7 +54,7 @@ end
   
 gabor_img = gaborFilter(img,F, sigma, theta, width);
 
-%figure, imshow(gabor_img);
+figure, imshow(gabor_img,[]);
 
 %%smoothen the image
 [gx,gy]=gaussian(24,2);
@@ -62,7 +62,6 @@ gabor_img = gaborFilter(img,F, sigma, theta, width);
 i1=convolution(gabor_img,gx,1,24,2);
 i2=convolution(i1,gy,2,24,2);
 
-%figure, imshow(i2);
-
+figure, imshow(i2,[]);
 
 
