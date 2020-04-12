@@ -65,6 +65,8 @@ function final_img = gaborFilter(img,F, sigma, theta, range)
 %calculate gef
 [hx,hy]=gef(F,theta,sigma,range);
 
+    disp(size(hx));
+    disp(size(hy));
 %apply convoolution row wise
 i1=convolution(img,hx,1,sigma,range);
 %apply convolution col wise

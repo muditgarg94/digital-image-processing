@@ -24,8 +24,9 @@
 
 function [hx,hy]=gef(F, theta, sigma, range)
 
-x=linspace(-(sigma*range),(sigma*range),4*sigma+1);
-y=linspace(-(sigma*range),(sigma*range),4*sigma+1);
+x=linspace(-(sigma*range),(sigma*range),2*range*sigma+1);
+%y=linspace(-(sigma*range),(sigma*range),2*range*sigma+1);
+y=x';
 
 U=F*cosd(theta);
 V=F*sind(theta);
@@ -33,7 +34,7 @@ V=F*sind(theta);
 [gx,gy]=gaussian(sigma,range);
 
 hx=gx.*(exp(1i*2*pi*U*x));
-hy=gy.*(exp(1i*2*pi*U*y));
+hy=gy.*(exp(1i*2*pi*V*y));
 % hx=zeros(size(x));
 % hy=zeros(size(y));
 

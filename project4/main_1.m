@@ -40,16 +40,12 @@ theta = 135;
 sigma = 8;
 width = 2;
 
-I = imread('texture1.gif');
-img=zeros(size(I));
-  
-for i=1:size(I,1)
-    for j=1:size(I,2)
-        if(I(i,j)==1)
-            img(i,j)=255;
-        end
-    end
-end
+I = imread('texture2.gif');
+%img=zeros(size(I));
+img=double(I.*255);
+
+
+figure, imshow(img, []);
 
 gabor_img = gaborFilter(img,F, sigma, theta, width);
 % for i=1:size(gabor_img,1)
@@ -61,7 +57,7 @@ gabor_img = gaborFilter(img,F, sigma, theta, width);
 % end
 
 
-%figure, imshow(gabor_img);
+figure, imshow(gabor_img, []);
 
 %figure, mesh(I), colormap(jet);
 %figure, mesh(gabor_img), colormap(jet);
@@ -72,7 +68,7 @@ gabor_img = gaborFilter(img,F, sigma, theta, width);
 i1=convolution(gabor_img,gx,1,24,width);
 i2=convolution(i1,gy,2,24,width);
 
-%figure, imshow(i2);
+figure, imshow(i2,[]);
 
 
 

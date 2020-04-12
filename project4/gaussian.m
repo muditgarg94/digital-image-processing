@@ -38,13 +38,13 @@ function [gx,gy]=gaussian(sigma, range)
 
 
 %y=-(sigma*range):(sigma*range);
-x=linspace(-(sigma*range),(sigma*range),4*sigma+1);
+x=linspace(-(sigma*range),(sigma*range),2*range*sigma+1);
 
 %gy=zeros(size(y));
 
 denom = sqrt(2*pi)*sigma;
 gx=(exp(-(x.^2)/(2*(sigma^2))))./denom; 
-gy=gx;
+gy=gx';
 % for i=1:length(x)
 %    gx(i)=(exp(-(x(i).^2)/(2*(sigma.^2))))/denom; 
 % end
