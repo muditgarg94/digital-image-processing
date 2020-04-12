@@ -29,7 +29,7 @@
 %       padding:   Applies the padding of size mask/2 to the given image and returns the padded image. 
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        04m(x/11/2020
+%  Date:        04/11/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;
@@ -55,6 +55,14 @@ for i=1:size(I,1)
 end
   
 gabor_img = gaborFilter(img,F, sigma, theta, width);
+% for i=1:size(gabor_img,1)
+%     for j=1:size(gabor_img,2)
+%         if(gabor_img(i,j)>0)
+%             gabor_img(i,j)=255;
+%         end
+%     end
+% end
+
 
 figure, imshow(gabor_img);
 

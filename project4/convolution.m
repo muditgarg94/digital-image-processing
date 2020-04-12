@@ -1,7 +1,6 @@
 %%%%%%%%%%%%% convolution.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       to apply the alphatrimmed filter on an image using a given mask and
-%       alpha
+%       To compute 1D convolution
 %
 % Input Variables:
 %       img     Input Image
@@ -35,17 +34,20 @@
 
 function conv_img=convolution(img, h,axis,sigma, range)
 [m,n]=size(img);
-conv_img=zeros(m,n);
+
 index=sigma*range;
 
+conv_img=zeros(m,n);
 
+%disp(length(h))
 %% axis=1 represents row wise
 if( axis==1)
     for i=index+1: m-index
         for j=1:n
             tmp=0;
             for k=-index:index
-                tmp=tmp+(img(i+k,j)*h(index+1-k));
+                %disp("hindex="+(index+1+k));
+                tmp=tmp+(img(i+k,j)*h(index+1+k));
                 
             end
             conv_img(i,j)=tmp;
@@ -61,7 +63,7 @@ if(axis==2)
         for j=index+1:n-index
             tmp=0;
             for k=-index:index
-                tmp=tmp+(img(i,j+k)*h(index+1-k));
+                tmp=tmp+(img(i,j+k)*h(index+1+k));
             end
             conv_img(i,j)=tmp;
         end
