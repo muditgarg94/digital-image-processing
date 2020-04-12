@@ -29,15 +29,13 @@
 %       padding:   Applies the padding of size mask/2 to the given image and returns the padded image. 
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        03/22/2020
+%  Date:        04m(x/11/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;
 clc;
 
 
-imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
-%giftopng(imageList)
 
 % Parameters initialization
 F = 0.059;
@@ -66,7 +64,7 @@ figure, imshow(gabor_img);
 i1=convolution(gabor_img,gx,1,24,2);
 i2=convolution(i1,gy,2,24,2);
 
-figure, imshow(i2);
+%figure, imshow(i2);
 
 
 

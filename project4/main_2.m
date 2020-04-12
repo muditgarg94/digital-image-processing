@@ -29,7 +29,7 @@
 %       padding:   Applies the padding of size mask/2 to the given image and returns the padded image. 
 %
 %  Author:      Mudit Garg, Mayank Murali, Niranjan Thirusangu
-%  Date:        03/22/2020
+%  Date:        04/11/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear;
