@@ -42,7 +42,7 @@ x=-(sigma*range):(sigma*range);
 gx=zeros(size(x));
 %gy=zeros(size(y));
 
-denom = 2*pi*sigma.^2;
+denom = sqrt(2*pi)*sigma;
 
 % for i=1:length(x)
 %    gx(i)=(exp(-(x(i).^2)/(2*(sigma.^2))))/denom; 
