@@ -32,9 +32,8 @@
 %  Date:        03/22/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-clc
-clear all
+clear;
+clc;
 
 
 imageList = {'texture1.gif','texture2.gif', 'd4d29.gif','d9d77.gif'};
@@ -57,9 +56,18 @@ for i=1:size(I,1)
     end
 end
   
-final_img = gaborFilter(img,F, sigma, theta, width);
+gabor_img = gaborFilter(img,F, sigma, theta, width);
 
-imshow(final_img);
+figure, imshow(gabor_img);
+
+%%smoothen the image
+[gx,gy]=gaussian(24,2);
+
+i1=convolution(gabor_img,gx,1,24,2);
+i2=convolution(i1,gy,2,24,2);
+
+figure, imshow(i2);
+
 
 % 
 % for index = 1 : numel(imageList)
