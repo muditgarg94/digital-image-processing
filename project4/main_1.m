@@ -1,7 +1,6 @@
 %%%%%%%%%%%%% main_1.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       to apply the alphatrimmed filter on an image using a given mask and
-%       alpha
+%       Main matlab function for problem 1
 %
 % Input Variables:
 %       img     Input Image
@@ -34,8 +33,6 @@
 
 clear;
 clc;
-
-
 
 % Parameters initialization
 F = 0.059;
