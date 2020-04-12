@@ -27,16 +27,16 @@ sigma = 36;
 range = 2;
 
 I = imread('d9d77.gif');
-img=ones(size(I));
-  
-for i=1:size(I,1)
-    for j=1:size(I,2)
-        %disp(I(i,j));
-        if(I(i,j)>=112 && I(i,j)<=210)
-            %disp("Iside")
-            img(i,j)=0;
-        end
-    end
-end
+%img=ones(size(I));
+img=double(I);
+% for i=1:size(I,1)
+%     for j=1:size(I,2)
+%         %disp(I(i,j));
+%         if(I(i,j)>=112 && I(i,j)<=210)
+%             %disp("Iside")
+%             img(i,j)=0;
+%         end
+%     end
+% end
 
 gabor_img = gaborFilter(img,F, sigma, theta, range);
