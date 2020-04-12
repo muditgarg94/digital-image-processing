@@ -40,7 +40,7 @@ theta = 135;
 sigma = 8;
 width = 2;
 
-I = imread('texture2.gif');
+I = imread('texture1.gif');
 %img=zeros(size(I));
 img=double(I.*255);
 
