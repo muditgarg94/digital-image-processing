@@ -1,7 +1,6 @@
-%%%%%%%%%%%%% main_2.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% segmentation.m file %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Purpose:
-%       to apply the alphatrimmed filter on an image using a given mask and
-%       alpha
+%       Main matlab function for problem 1
 %
 % Input Variables:
 %       img     Input Image
@@ -32,37 +31,13 @@
 %  Date:        04/11/2020
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clear;
-clc;
+function output=segmentation(img, original_img)
 
-% Parameters initialization
-F = 0.042;
-theta = 0;
-sigma = 24;
-width = 2;
 
-I = imread('texture1.gif');
-img=zeros(size(I));
-  
-for i=1:size(I,1)
-    for j=1:size(I,2)
-        if(I(i,j)==1)
-            img(i,j)=255;
-        end
-    end
-end
-  
-gabor_img = gaborFilter(img,F, sigma, theta, width);
+max_val=max(max(img));
+min_val=min(min(img));
+ diff=max_val-min_val;
+segment=round(((img - min_val)./(diff)));
 
-figure, imshow(gabor_img,[]);
-
-%%smoothen the image
-[gx,gy]=gaussian(24,2);
-
-i1=convolution(gabor_img,gx,1,24,2);
-i2=convolution(i1,gy,2,24,2);
-
-figure, imshow(i2,[]);
-
-segmented=segmentation(i2,img);
-
+output=segment.*original_img;
+return

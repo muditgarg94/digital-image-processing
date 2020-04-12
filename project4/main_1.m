@@ -70,7 +70,7 @@ i2=convolution(i1,gy,2,24,width);
 
 figure, imshow(i2,[]);
 
-
+segmented=segmentation(i2,img);
 
 % for index = 1 : numel(imageList)
 %   
