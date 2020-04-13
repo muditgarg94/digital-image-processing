@@ -67,6 +67,7 @@ figure, imshow(i2,[]);
 
 
 mask=segmentation(i2,img);
+figure, imhist(mask);
 [r,c]=size(mask);
 segmented=zeros(r,c);
 
