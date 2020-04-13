@@ -67,9 +67,21 @@ for i=1:r
     end
 end
 
+[y,x]=find(segmented==1);
+disp("minx="+(min(x)));
+disp("maxx="+(max(x)));
+disp("miny="+ (min(y)));
+disp("maxy="+(max(y)));
 
 output=segmented.*img;
 figure, imshow(output);
 
 fused=imfuse(img,segmented);
 figure, imshow(fused);
+
+
+figure(2);
+hold on;
+imshow(img,[]);
+% Then, from the help:
+rectangle('Position',[min(x),min(y),max(x)-min(x),max(y)-min(y)], 'LineWidth',2,'EdgeColor','red');
