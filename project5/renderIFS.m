@@ -17,7 +17,7 @@
 
 
 function img=renderIFS(L,M,P,num,xmin,xmax,ymin,ymax)
-I=zeors(L,M);
+I=zeros(L,M);
 x=0;
 y=0;
 Imax=0;
@@ -46,7 +46,7 @@ for n=1:num
     end
 end
 
-I=int8(I>1)*255;
+%I=int8(I>1)*255;
 img=I;
 
 
