@@ -21,7 +21,7 @@ clc; clear;
 L=1024;
 M=1024;
 P=[0.2,0.35,0.35,0.1];
-num=50000000;
+num=100000000;
 img= renderIFS(L,M,P,num,-3,3,0,9);
 
 figure,imshow(img)
